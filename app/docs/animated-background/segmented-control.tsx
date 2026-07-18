@@ -4,14 +4,14 @@ export function SegmentedControl() {
   return (
     <div className='rounded-[8px] bg-gray-100 p-[2px] dark:bg-zinc-800'>
       <AnimatedBackground
-        defaultValue='Day'
+        defaultValue='Canvas'
         className='rounded-lg bg-white dark:bg-zinc-700'
         transition={{
           ease: 'easeInOut',
           duration: 0.2,
         }}
       >
-        {['Day', 'Week', 'Month', 'Year'].map((label, index) => {
+        {['Canvas', 'Source', 'Review', 'Run'].map((label, index) => {
           return (
             <button
               key={index}
