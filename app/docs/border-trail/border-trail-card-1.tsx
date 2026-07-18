@@ -13,7 +13,7 @@ export function BorderTrailCard1() {
       <div
         className='flex h-full animate-pulse flex-col items-start justify-center space-y-2'
         role='status'
-        aria-label='Loading...'
+        aria-label='Building an exact preview deployment...'
       >
         <div className='h-1 w-4 rounded-[4px] bg-zinc-600'></div>
         <div className='h-1 w-10 rounded-[4px] bg-zinc-600'></div>
