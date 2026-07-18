@@ -1,30 +1,21 @@
-# Flowcordia Site
+# Motion-Primitives
 
-The public website and documentation foundation for Flowcordia.
+Beautifully designed, easy-to-integrate motion components for engineers and designers, built with [motion](https://motion.dev/) and [Tailwind CSS](https://tailwindcss.com/).
 
-Flowcordia is a Git-native workflow platform where visual builders and developers collaborate on the same reviewed workflow.
+**This project is in beta. Expect new components to be released regularly and significant updates to the code.**
 
-## Development
+<p align="center">
+<img src="https://raw.githubusercontent.com/ibelick/motion-primitives/main/app/opengraph-image.jpg" alt="hero" width="80%" />
+</p>
 
-```bash
-npm install
-npm run dev
-```
+## Documentation
 
-Open `http://localhost:3000`.
+Visit [motion-primitives.com/docs](http://motion-primitives.com/docs) to view the full documentation.
 
-## Quality gates
+## Contributing
 
-```bash
-npm run lint
-npm run typecheck
-npm run build
-```
+Please read the [contributing guide](/CONTRIBUTING.md).
 
-## Structure
+## License
 
-- `app/` — marketing pages, documentation routes, metadata, and global styles
-- `components/` — original Flowcordia UI, motion, diagrams, and site chrome
-- `public/` — static public assets
-
-The first release deliberately avoids template-specific abstractions. Product demonstrations are implemented as accessible interface components so they can evolve alongside the real application.
+Licensed under the [MIT license](/LICENSE.md).
