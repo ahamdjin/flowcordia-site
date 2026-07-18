@@ -1,0 +1,47 @@
+export const metadata = {
+  title: 'Typed functions - Flowcordia',
+  description:
+    'Extend visual workflows with repository-owned functions and explicit input and output contracts.',
+};
+
+# Typed functions
+
+Typed functions let a workflow call repository-owned code without hiding the contract from the visual builder.
+
+## Function catalog
+
+A repository can declare the functions that Flowcordia may expose in Studio. Each catalog entry identifies the implementation and describes the accepted input and returned output.
+
+```json
+{
+  "id": "qualify-lead",
+  "name": "Qualify lead",
+  "input": "LeadInput",
+  "output": "LeadScore"
+}
+```
+
+## Visual contract
+
+Studio uses the function contract to render configuration fields, validate connections, and describe the node output to downstream steps.
+
+The canvas references the function by stable identity. It does not copy the implementation into the workflow document.
+
+## Repository ownership
+
+The implementation remains ordinary TypeScript in the connected repository. Developers can test, review, and evolve it using their normal engineering workflow.
+
+## Compilation
+
+When a workflow is compiled, Flowcordia generates the task wiring needed to invoke the function with the declared input and pass the typed result to later nodes.
+
+## Validation
+
+A workflow proposal should fail validation when:
+
+- The referenced function no longer exists.
+- Required inputs are not connected or configured.
+- The declared output is incompatible with the next step.
+- Generated source cannot build against the repository fixture.
+
+Next: [Git proposals](/docs/git-proposals).
