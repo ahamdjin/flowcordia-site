@@ -1,0 +1,39 @@
+export const metadata = {
+  title: 'Studio - Flowcordia',
+  description:
+    'Build repository-backed workflows visually without creating a second source of truth.',
+};
+
+# Studio
+
+Studio is the visual working surface for a repository-backed workflow. It helps builders compose the flow while preserving the contracts developers expect from code.
+
+## What the canvas represents
+
+A canvas contains nodes, connections, configuration, and stable identifiers. It is a view of the canonical workflow model—not an independent export format.
+
+Typical nodes include:
+
+- Event and schedule triggers
+- Conditions and branches
+- Data transformations
+- Repository-owned typed functions
+- Durable task steps
+
+## Durable drafts
+
+Visual changes are stored as durable draft operations. A browser refresh or temporary interruption should not silently discard the current working state.
+
+The draft remains separate from production until it is published through the Git proposal lifecycle.
+
+## Bounded visual editing
+
+Flowcordia only renders structures it can represent accurately. Unsupported code remains visible as code instead of being flattened into a misleading graph.
+
+This boundary matters because convenience should never weaken review, ownership, or runtime correctness.
+
+## Structural preview
+
+Before publishing, Studio can validate the workflow shape and show the generated source that corresponds to the current model. Live execution requires a deployment built from the exact version being reviewed.
+
+Next: [Workflow model](/docs/workflow-model) and [Source](/docs/source).
