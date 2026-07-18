@@ -1,0 +1,40 @@
+export const metadata = {
+  title: 'Workflow model - Flowcordia',
+  description:
+    'Learn how one workflow identity connects the canvas, canonical document, source, Git, deployments, and runs.',
+};
+
+# Workflow model
+
+Flowcordia treats a workflow as one governed object with several connected representations.
+
+## One identity
+
+| Representation | Purpose |
+| :-- | :-- |
+| Canvas | Human-readable visual composition |
+| Canonical document | Deterministic workflow definition |
+| Generated source | Executable task code derived from the model |
+| Git commit | Immutable reviewed version |
+| Deployment | Runtime artifact built from a commit |
+| Run | Execution tied to a deployment version |
+
+The workflow ID remains stable across these representations. A visual edit does not create a separate workflow from the code under review.
+
+## Canonical document
+
+The canonical document records nodes, edges, configuration, function references, and workflow metadata in a deterministic format. Equivalent workflow states should compile to equivalent generated output.
+
+## Exact-version rule
+
+A changed commit is a changed executable version. If the proposal head moves after a preview deployment was built, Flowcordia must not silently execute the older deployment as though it represented the new head.
+
+## Fail closed
+
+When identity cannot be proven across proposal, deployment, and run, execution should stop with a clear explanation. Running a convenient but stale version would break the governance model.
+
+## Why this matters
+
+The connected identity makes review, rollback, audit, debugging, and collaboration possible without forcing visual builders and developers into separate systems.
+
+Next: [Typed functions](/docs/typed-functions) and [Git proposals](/docs/git-proposals).
