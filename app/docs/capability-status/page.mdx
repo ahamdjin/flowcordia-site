@@ -1,0 +1,48 @@
+export const metadata = {
+  title: 'Capability status - Flowcordia',
+  description:
+    'Separate implemented Flowcordia foundations, inherited runtime capabilities, active work, and planned product areas.',
+};
+
+# Capability status
+
+Flowcordia is under active development. This page separates the current foundations from inherited runtime capabilities and future product work.
+
+## Flowcordia foundations
+
+| Area | Status |
+| :-- | :-- |
+| Repository-backed workflow identity | Implemented foundation |
+| Visual Studio and durable drafts | Implemented foundation |
+| Structural preview and deterministic compilation | Implemented foundation |
+| Git proposal lifecycle | Implemented foundation |
+| Typed function catalog and input/output contract | Implemented foundation |
+| Exact proposal-head preview contract | Implemented foundation |
+| Governed source editing | Implemented foundation |
+| Public hosted onboarding | In progress |
+| Guided self-hosting | In progress |
+
+## Runtime foundation
+
+Flowcordia builds on Trigger.dev’s durable execution platform. Runtime capabilities such as task execution, queues, concurrency, machines, environments, retries, schedules, replay, alerts, and logs belong to that underlying runtime and still require correct Flowcordia integration and product exposure.
+
+## Planned workflow surfaces
+
+The following areas should not be described as generally released until their complete product paths are implemented and verified:
+
+- Visual retry-policy configuration
+- Human approval nodes
+- Subflows
+- Batch and parallel controls
+- Idempotency and TTL controls
+- Realtime workflow updates
+- Tags and operational metadata
+- Enterprise identity and governance features
+
+## Availability is not file existence
+
+A component or route existing in the repository does not automatically mean a capability is enabled, supported, or ready for public use. Product availability depends on connected permissions, control-plane state, runtime support, and a tested end-to-end path.
+
+## Documentation rule
+
+Flowcordia documentation should describe what a user can complete reliably today, label inherited capabilities accurately, and keep planned work visibly separate.
