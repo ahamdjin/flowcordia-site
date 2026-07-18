@@ -1,23 +1,49 @@
-# Motion-Primitives
+export const metadata = {
+  title: 'Flowcordia Documentation',
+  description:
+    'Understand Flowcordia’s visual studio, workflow model, Git proposal lifecycle, typed functions, preview deployments, and runtime boundaries.',
+};
 
-Make your website look better with beautifully designed motion components.<br />
-Easy to use. Customizable. Open Source.
-Built for engineers, designers, and founders.
+# Flowcordia
 
-Motion-Primitives offers a collection of reusable animated components built with Motion and Tailwind CSS. Add smooth, engaging animations to your web projects, making them more interactive and enjoyable.
+Flowcordia is a Git-native workflow platform where visual builders and developers work on the same reviewed workflow.
 
-## Vision
+The canvas is not a separate source of truth. A workflow keeps one identity across its visual model, canonical document, generated source, Git history, deployment version, and run history.
 
-As a developer, I struggled to find practical, high-quality animated components suitable for real-world projects. Motion-Primitives was created to fill this gap, providing ready-to-use, customizable components that improve marketing websites and web applications.
+## The operating loop
 
-### Easy to Use and customize
+<Steps>
 
-Each component has comprehensive examples and detailed documentation. You can use them directly or easily modify them to align with your custom UI kit, design system, or specific requirements.
+<Step>Build visually</Step>
 
-### Built around Motion
+Compose triggers, conditions, transformations, and tasks in Studio.
 
-All components are built with [Motion](https://motion.dev/) to ensure a solid foundation and showcase the library's capabilities. Future plans include versions using CSS and Tailwind CSS only.
+<Step>Extend with typed code</Step>
 
-### Open source and community-driven
+Use repository-owned functions when a workflow needs behavior that should remain explicit code.
 
-Motion-Primitives is open-source. Contributions are welcome to expand and improve the collection.
+<Step>Review through Git</Step>
+
+Publish the workflow document, generated task source, and governed source changes together as one proposal.
+
+<Step>Run the reviewed version</Step>
+
+Preview and production execution remain tied to an exact commit and deployment version.
+
+</Steps>
+
+## What Flowcordia protects
+
+| Boundary | Contract |
+| :-- | :-- |
+| Workflow identity | The same workflow ID follows the canvas, source, proposal, deployment, and run. |
+| Git history | Production changes remain reviewable, attributable, and reversible. |
+| Secrets | Workflows reference secret names; secret values do not enter workflow documents. |
+| Exact execution | A changed proposal head is treated as a changed executable version. |
+| Unsupported code | Code that cannot be represented safely remains code instead of becoming a misleading graph. |
+
+## Current status
+
+Flowcordia is under active development in public. The Studio, compiler, Git proposal lifecycle, typed-function contract, and exact-preview path are being developed as connected product foundations rather than isolated demonstrations.
+
+Start with [Getting started](/docs/getting-started) or read the [Workflow model](/docs/workflow-model).
