@@ -26,54 +26,54 @@ export function Header() {
   return (
     <header className='sticky top-0 z-10 flex h-16 items-center justify-center border-b border-zinc-200 bg-white px-6 py-5 dark:border-white/10 dark:bg-zinc-950'>
       <div className='mx-auto flex w-full items-center justify-between md:max-w-7xl'>
-        <Link href='/docs' className='relative flex items-center space-x-2'>
+        <Link href='/' className='relative flex items-center space-x-2'>
           <MPLogo className='h-6 w-auto' />
           <div className='text-sm font-medium text-zinc-950 dark:text-white'>
-            motion-primitives
+            Flowcordia
           </div>
           <span className='mb-4 ml-0 rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] leading-none font-medium text-zinc-50 select-none'>
-            beta
+            alpha
           </span>
         </Link>
         <div className='flex items-center space-x-6'>
           <nav className='hidden items-center space-x-6 sm:flex'>
-            <a
-              href='https://www.prompt-kit.com/'
-              target='_blank'
-              rel='noopener noreferrer'
+            <Link
+              href='/'
               className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
             >
-              AI
-            </a>
+              Product
+            </Link>
             <a
-              href='https://pro.motion-primitives.com'
+              href='https://github.com/ahamdjin/Flowcordia/issues'
               target='_blank'
               rel='noopener noreferrer'
               className='inline-flex items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
             >
-              Advanced
+              Roadmap
             </a>
             <Link
-              href='/docs/text-effect'
+              href='/docs'
               className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
             >
-              Components
+              Docs
             </Link>
           </nav>
           <div className='hidden h-8 w-[0.5px] bg-zinc-200 sm:flex dark:bg-zinc-800' />
           <nav className='flex items-center space-x-2'>
             <a
-              href='https://twitter.com/Ibelick'
+              href='https://github.com/ahamdjin/Flowcordia/discussions'
               target='_blank'
               rel='noopener noreferrer'
+              aria-label='Flowcordia community discussions'
               className='inline-flex h-9 w-9 items-center justify-center'
             >
               <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
             </a>
             <a
-              href='https://github.com/ibelick/motion-primitives'
+              href='https://github.com/ahamdjin/Flowcordia'
               target='_blank'
               rel='noopener noreferrer'
+              aria-label='Flowcordia on GitHub'
               className='inline-flex h-9 w-9 items-center justify-center'
             >
               <GitHubIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
