@@ -51,7 +51,7 @@ export function Cursor1() {
                 className='inline-flex w-full items-center justify-center'
               >
                 <div className='inline-flex items-center text-sm text-white dark:text-black'>
-                  More <PlusIcon className='ml-1 h-4 w-4' />
+                  Inspect <PlusIcon className='ml-1 h-4 w-4' />
                 </div>
               </motion.div>
             ) : null}
@@ -60,8 +60,8 @@ export function Cursor1() {
       </Cursor>
       <div ref={targetRef}>
         <img
-          src='https://i.pinimg.com/564x/75/3c/3f/753c3f1a9f85871ffa7a7a78bcf49f66.jpg'
-          alt='Olympic logo Paris 2024'
+          src='/flowcordia-run.svg'
+          alt='A completed Flowcordia workflow run tied to an exact commit.'
           className='h-52 w-full max-w-48 rounded-[8px] border border-zinc-100 object-cover'
         />
       </div>
