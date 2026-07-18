@@ -1,0 +1,40 @@
+export const metadata = {
+  title: 'Source - Flowcordia',
+  description:
+    'Understand generated workflow source and governed repository-owned source changes.',
+};
+
+# Source
+
+The Source surface keeps generated workflow code and deliberate developer edits visible without pretending they are the same thing.
+
+## Generated source
+
+Flowcordia compiles the canonical workflow model into deterministic task source. Generated files should be reproducible from the same workflow document and compiler version.
+
+Generated source makes the runtime contract inspectable. It is not a hidden implementation detail behind the canvas.
+
+## Governed source
+
+Some workflow behavior belongs in repository-owned code. Typed functions, custom transformations, and unsupported structures remain explicit source files reviewed by developers.
+
+Flowcordia keeps these edits in durable source buffers until they are published with the workflow proposal.
+
+## Separation of responsibility
+
+| Surface | Ownership |
+| :-- | :-- |
+| Canvas configuration | Visual workflow model |
+| Generated task source | Flowcordia compiler |
+| Typed function implementation | Repository owners |
+| Secrets | Runtime environment |
+
+## Publishing
+
+A proposal can include the canonical workflow document, generated task source, and governed source patches together. Reviewers see one coherent change rather than several disconnected updates.
+
+## Unsupported code
+
+Flowcordia does not force arbitrary code into visual nodes. When a construct cannot be represented safely, the source remains authoritative and the visual surface communicates that boundary.
+
+Next: [Typed functions](/docs/typed-functions).
