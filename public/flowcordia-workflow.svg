@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title description">
+  <title id="title">Flowcordia workflow</title>
+  <desc id="description">A visual workflow connecting an event trigger, a condition, a typed function, and a task.</desc>
+  <rect width="800" height="560" fill="#f4f4f5"/>
+  <path d="M190 280H310M490 280H610" stroke="#a1a1aa" stroke-width="3" stroke-linecap="round"/>
+  <path d="M400 190V135M400 425V370" stroke="#d4d4d8" stroke-width="3" stroke-linecap="round"/>
+  <rect x="70" y="220" width="120" height="120" rx="18" fill="#fff" stroke="#d4d4d8" stroke-width="2"/>
+  <circle cx="130" cy="264" r="15" fill="#18181b"/>
+  <text x="130" y="311" fill="#18181b" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Trigger</text>
+  <rect x="310" y="190" width="180" height="180" rx="24" fill="#18181b"/>
+  <path d="M365 280h70M400 245v70" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <text x="400" y="338" fill="#fff" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Typed function</text>
+  <rect x="610" y="220" width="120" height="120" rx="18" fill="#fff" stroke="#d4d4d8" stroke-width="2"/>
+  <path d="M647 280h46" stroke="#18181b" stroke-width="5" stroke-linecap="round"/>
+  <path d="m680 263 17 17-17 17" fill="none" stroke="#18181b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="670" y="311" fill="#18181b" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Task</text>
+  <rect x="326" y="86" width="148" height="49" rx="24.5" fill="#fff" stroke="#d4d4d8" stroke-width="2"/>
+  <text x="400" y="117" fill="#52525b" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Git proposal</text>
+  <rect x="326" y="425" width="148" height="49" rx="24.5" fill="#fff" stroke="#d4d4d8" stroke-width="2"/>
+  <text x="400" y="456" fill="#52525b" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Exact run</text>
+</svg>
