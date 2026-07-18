@@ -1,0 +1,49 @@
+export const metadata = {
+  title: 'Self-hosting - Flowcordia',
+  description:
+    'Understand the intended self-hosted architecture and the current onboarding boundary.',
+};
+
+# Self-hosting
+
+Flowcordia is designed as an open-source platform that can run within infrastructure controlled by its operators.
+
+## Architecture
+
+A complete deployment may include:
+
+- The Flowcordia web application and control plane
+- PostgreSQL for durable product state
+- Object storage for larger artifacts
+- Trigger.dev services for durable execution
+- GitHub App credentials for repository collaboration
+- Runtime environments and secret storage
+
+## Current boundary
+
+The product foundation is being built before a one-command public self-hosting experience is presented as complete. Manual internal setup should not be documented as polished onboarding.
+
+## Configuration ownership
+
+Operators should control:
+
+- Application and database credentials
+- GitHub App installation and permissions
+- Runtime projects and environments
+- Deployment domains and TLS
+- Secret values used by workflows
+- Backups, retention, and observability
+
+## Data boundaries
+
+Repository source remains in GitHub. Runtime execution data remains in the durable runtime and connected infrastructure. Flowcordia stores the control-plane identities needed to connect workflows, proposals, deployments, and runs.
+
+## Upgrade discipline
+
+A self-hosted release should include migrations, compatibility notes, health checks, rollback guidance, and explicit versions for the application and runtime dependencies.
+
+## Planned guidance
+
+Public self-hosting documentation will expand when installation, upgrades, backups, reconciliation, and failure recovery can be described as one tested path.
+
+See [Capability status](/docs/capability-status) for the current product boundary.
