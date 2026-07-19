@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/website/theme-provider';
+import { ThemeFavicon } from '@/components/website/theme-favicon';
 import { GeistMono } from 'geist/font/mono';
 import { TooltipProvider } from '@/components/ui/tooltip';
 const inter = Inter({ subsets: ['latin'] });
@@ -12,9 +13,18 @@ export const metadata: Metadata = {
   description:
     'Flowcordia is an open-source, Git-native workflow platform connecting a visual studio, typed functions, reviewed changes, and exact-version execution.',
   icons: {
-    icon: '/flowcordia-logo-black.svg',
-    shortcut: '/flowcordia-logo-black.svg',
-    apple: '/flowcordia-logo-black.svg',
+    icon: [
+      {
+        url: '/flowcordia-logo-black.svg',
+        type: 'image/svg+xml',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/flowcordia-logo-white.svg',
+        type: 'image/svg+xml',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
   },
 };
 
@@ -29,6 +39,7 @@ export default function RootLayout({
         className={`${inter.className} ${geistMono.variable} bg-white font-sans antialiased dark:bg-zinc-950`}
       >
         <ThemeProvider attribute='class'>
+          <ThemeFavicon />
           <TooltipProvider>
             <div className='isolate min-h-screen'>{children}</div>
           </TooltipProvider>
