@@ -13,6 +13,7 @@ import { InfiniteSliderHoverSpeed } from '@/app/docs/infinite-slider/infinite-sl
 import { Cursor1 } from '@/app/docs/cursor/cursor-1';
 import { SegmentedControl } from '@/app/docs/animated-background/segmented-control';
 import { FlowcordiaLogo } from '@/components/website/flowcordia-logo';
+import { SiteFooter } from '@/components/website/site-footer';
 import { TextLoopBasic } from './docs/text-loop/text-loop-basic';
 import { TextShimmerBasic } from './docs/text-shimmer/text-shimmer-basic';
 import { BorderTrailCard1 } from './docs/border-trail/border-trail-card-1';
@@ -214,6 +215,7 @@ export default function Motion() {
           <Link href='/docs'>Explore the complete workflow model</Link>
         </div>
       </div>
+      <SiteFooter />
     </>
   );
 }
