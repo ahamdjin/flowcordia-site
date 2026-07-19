@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: 'Flowcordia - Build visually. Govern as code.',
   description:
     'Flowcordia is an open-source, Git-native workflow platform connecting a visual studio, typed functions, reviewed changes, and exact-version execution.',
+  icons: {
+    icon: '/flowcordia-logo-black.svg',
+    shortcut: '/flowcordia-logo-black.svg',
+    apple: '/flowcordia-logo-black.svg',
+  },
 };
 
 export default function RootLayout({
