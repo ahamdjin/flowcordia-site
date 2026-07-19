@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MPLogo } from './icons/motion-primitives-logo';
+import { FlowcordiaLogo } from './flowcordia-logo';
 import XIcon from './icons/x';
 import GitHubIcon from './icons/github';
 import ThemeSwitch from './theme-switch';
@@ -27,7 +27,7 @@ export function Header() {
     <header className='sticky top-0 z-10 flex h-16 items-center justify-center border-b border-zinc-200 bg-white px-6 py-5 dark:border-white/10 dark:bg-zinc-950'>
       <div className='mx-auto flex w-full items-center justify-between md:max-w-7xl'>
         <Link href='/' className='relative flex items-center space-x-2'>
-          <MPLogo className='h-6 w-auto' />
+          <FlowcordiaLogo className='h-6 w-auto' />
           <div className='text-sm font-medium text-zinc-950 dark:text-white'>
             Flowcordia
           </div>
