@@ -1,5 +1,6 @@
 import {
   CheckCircle2,
+  ChevronRight,
   Code2,
   GitBranch,
   Play,
@@ -138,7 +139,7 @@ function ExpandedNode({
   const Icon = step.icon;
 
   return (
-    <div className='relative flex min-w-0 flex-1 items-center'>
+    <div className='relative flex w-full min-w-0 flex-col items-center sm:flex-1 sm:flex-row'>
       <div
         className={`relative z-10 w-full rounded-xl border bg-white p-3.5 dark:bg-zinc-950 ${
           step.highlighted
@@ -168,9 +169,11 @@ function ExpandedNode({
       </div>
 
       {index < WORKFLOW_STEPS.length - 1 && (
-        <div aria-hidden='true' className='flex w-5 shrink-0 items-center'>
-          <span className='h-px w-full bg-zinc-300 dark:bg-zinc-700' />
-          <span className='-ml-1 h-1.5 w-1.5 rotate-45 border-t border-r border-zinc-300 dark:border-zinc-700' />
+        <div
+          aria-hidden='true'
+          className='flex h-6 w-full shrink-0 items-center justify-center text-zinc-300 sm:h-auto sm:w-5 dark:text-zinc-700'
+        >
+          <ChevronRight className='h-3.5 w-3.5 rotate-90 sm:rotate-0' strokeWidth={1.4} />
         </div>
       )}
     </div>
@@ -204,7 +207,7 @@ export function CustomerOnboardingDetails() {
           aria-hidden='true'
           className='absolute inset-0 opacity-50 [background-image:linear-gradient(to_right,rgba(161,161,170,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(161,161,170,0.12)_1px,transparent_1px)] [background-size:24px_24px] dark:opacity-25'
         />
-        <div className='relative flex items-center'>
+        <div className='relative flex flex-col items-center sm:flex-row'>
           {WORKFLOW_STEPS.map((step, index) => (
             <ExpandedNode key={step.label} step={step} index={index} />
           ))}
@@ -241,13 +244,13 @@ export function CustomerOnboardingDetails() {
             <code className='font-mono text-xs'>acme/operations</code>
           </Detail>
           <Detail label='Current deployment'>
-            <span className='inline-flex items-center gap-2'>
+            <span className='inline-flex flex-wrap items-center gap-2'>
               <StatusDot />
               Production · <code className='font-mono text-xs'>a84f2c1</code>
             </span>
           </Detail>
           <Detail label='Last successful run'>
-            <span className='inline-flex items-center gap-2'>
+            <span className='inline-flex flex-wrap items-center gap-2'>
               <CheckCircle2 className='h-3.5 w-3.5 text-zinc-400' strokeWidth={1.7} />
               Completed · 42s ago
             </span>
