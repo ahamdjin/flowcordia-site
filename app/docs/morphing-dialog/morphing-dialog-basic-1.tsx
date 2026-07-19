@@ -27,7 +27,7 @@ export function MorphingDialogBasicOne() {
         style={{
           borderRadius: '12px',
         }}
-        className='flex max-w-[270px] flex-col overflow-hidden border border-zinc-950/10 bg-white text-left dark:border-zinc-50/10 dark:bg-zinc-900'
+        className='group flex max-w-[270px] flex-col overflow-hidden border border-zinc-950/10 bg-white text-left dark:border-zinc-50/10 dark:bg-zinc-900'
       >
         <CustomerOnboardingPreview />
         <div className='flex grow flex-row items-end justify-between px-3 py-2.5'>
