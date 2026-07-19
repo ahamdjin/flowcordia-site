@@ -1,0 +1,59 @@
+export const metadata = {
+  title: 'Getting started - Flowcordia',
+  description:
+    'Understand the current repository contract and the complete Flowcordia workflow path.',
+};
+
+# Getting started
+
+Flowcordia is being developed in public. Hosted onboarding is not presented as generally available yet; this guide describes the repository and product contracts that the current system uses.
+
+## Prerequisites
+
+- A GitHub repository connected to Flowcordia.
+- A production branch selected for governed workflow changes.
+- A Trigger.dev environment capable of building preview deployments.
+- Repository permissions for branches, commits, pull requests, and status checks.
+
+## The first workflow path
+
+<Steps>
+
+<Step>Open a repository-backed workflow</Step>
+
+Studio reads the canonical workflow document from an exact repository commit.
+
+<Step>Make a visual change</Step>
+
+Canvas operations are applied through a bounded command model and saved as a durable draft.
+
+<Step>Preview the structure</Step>
+
+Validate the workflow model and inspect generated source before publishing it.
+
+<Step>Publish a proposal</Step>
+
+Flowcordia creates a branch and pull request containing the workflow document, generated task source, and any governed source edits.
+
+<Step>Build the proposal head</Step>
+
+A preview deployment is associated with the exact commit under review.
+
+<Step>Execute and inspect</Step>
+
+Run status and step results return to the workflow experience without losing the commit and deployment identity.
+
+</Steps>
+
+## Repository shape
+
+<pre><code>{`.flowcordia/
+  workflows/
+    lead-intake.json
+  functions.json
+
+trigger/
+  flowcordia/
+    lead-intake.ts`}</code></pre>
+
+Continue with [Studio](/docs/studio) or the [Workflow model](/docs/workflow-model).

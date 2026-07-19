@@ -1,0 +1,46 @@
+export const metadata = {
+  title: 'Security boundaries - Flowcordia',
+  description:
+    'Understand repository permissions, secret references, exact-version checks, and fail-closed execution.',
+};
+
+# Security boundaries
+
+Flowcordia connects a visual editor, GitHub, and a durable runtime. The boundaries between those systems must remain explicit.
+
+## Secrets
+
+Workflow documents store references to secret names, not secret values. Values belong in the runtime environment and should never be written into Git branches, generated source, logs, or preview payloads.
+
+## Repository permissions
+
+The GitHub integration should request only the permissions required to:
+
+- Read the connected repository
+- Create proposal branches and commits
+- Open and update pull requests
+- Read proposal status and head commits
+
+Administrative repository operations should remain outside the normal workflow path.
+
+## Exact-version checks
+
+Before live execution, Flowcordia verifies that the workflow, proposal head, deployment, and task version agree. This is both a correctness and security boundary.
+
+## Source ownership
+
+Generated files and repository-owned files have different ownership. Flowcordia should not silently rewrite arbitrary source outside the governed proposal patch.
+
+## Input validation
+
+Trigger payloads, node configuration, function inputs, and repository paths require validation before they reach the runtime or GitHub APIs.
+
+## Auditability
+
+Important actions should retain actor, repository, workflow, base commit, proposal, deployment, and run identity. An operator must be able to reconstruct what changed and what executed.
+
+## Fail closed
+
+When permissions, identity, or version verification is incomplete, Flowcordia should stop and explain the missing boundary instead of guessing.
+
+Next: [Self-hosting](/docs/self-hosting).

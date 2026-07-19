@@ -1,0 +1,43 @@
+export const metadata = {
+  title: 'Preview deployments - Flowcordia',
+  description:
+    'Build and execute the exact proposal commit instead of a convenient stale version.',
+};
+
+# Preview deployments
+
+A live preview is only trustworthy when it executes the exact version under review.
+
+## Exact proposal head
+
+Flowcordia associates a preview deployment with the proposal head commit used to build it. The deployment record, workflow version, and run request must agree on that identity.
+
+## Structural and live preview
+
+| Preview | Purpose |
+| :-- | :-- |
+| Structural preview | Validate the model and inspect generated output without executing the workflow |
+| Live preview | Execute a deployed task built from the exact proposal commit |
+
+Structural preview is useful early. Live preview proves the actual compiled behavior.
+
+## Head changes
+
+When another commit is pushed to the pull request, the previous deployment no longer represents the current proposal head. Flowcordia should require a new matching deployment rather than reuse the older one silently.
+
+## Fail-closed behavior
+
+A live run should stop when:
+
+- No deployment exists for the current head.
+- The deployment version cannot be verified.
+- The workflow identity does not match the deployed task.
+- Runtime permissions are missing.
+
+The error should explain what must be rebuilt or reconnected.
+
+## Promotion
+
+After review and merge, production execution should remain traceable to the approved repository version and its corresponding deployment.
+
+Next: [Runs](/docs/runs).

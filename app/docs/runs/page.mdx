@@ -1,0 +1,48 @@
+export const metadata = {
+  title: 'Runs - Flowcordia',
+  description:
+    'Inspect workflow execution while preserving workflow, commit, deployment, and task identity.',
+};
+
+# Runs
+
+Runs connect runtime behavior back to the workflow version that produced it.
+
+## Run identity
+
+A run should retain:
+
+- Workflow ID
+- Repository and commit
+- Proposal or production context
+- Deployment version
+- Runtime task identifier
+- Trigger payload and step results
+
+This identity prevents logs and statuses from becoming detached from the code and canvas a reviewer saw.
+
+## Visual status
+
+Studio can return step-level status to the graph so builders can see where execution is waiting, succeeding, retrying, or failing.
+
+The visual state is a view of runtime data. Trigger.dev remains the durable execution foundation.
+
+## Inspection
+
+A useful run view should answer:
+
+1. Which exact version ran?
+2. What input triggered it?
+3. Which node or function failed?
+4. What logs and output were produced?
+5. Can the operation be retried safely?
+
+## Replay and retry
+
+Runtime replay and retry capabilities must preserve idempotency and version boundaries. A retry should not accidentally switch to newer workflow code unless the operator deliberately starts a new run against that version.
+
+## Observability
+
+Flowcordia’s control plane can connect workflow identity to runtime events, while detailed execution logs, queues, machine selection, and durable scheduling continue through the underlying runtime.
+
+Next: [Security boundaries](/docs/security).

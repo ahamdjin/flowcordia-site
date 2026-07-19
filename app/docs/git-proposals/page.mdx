@@ -1,0 +1,57 @@
+export const metadata = {
+  title: 'Git proposals - Flowcordia',
+  description:
+    'Publish visual workflow changes, generated source, and governed code together through GitHub.',
+};
+
+# Git proposals
+
+A proposal turns a durable Flowcordia draft into a normal Git branch and pull request.
+
+## Proposal contents
+
+A proposal may contain:
+
+- The canonical workflow document
+- Deterministically generated task source
+- Governed source-file changes
+- Function catalog updates
+- Repository-owned build fixtures
+
+These files belong to one logical workflow change and should be reviewed together.
+
+## Base commit
+
+Every draft starts from an exact repository commit. Before publishing, Flowcordia checks whether the target branch moved and whether the draft can still be applied safely.
+
+## Conflict handling
+
+Flowcordia should not overwrite a newer repository state silently. When the base has moved, the proposal lifecycle surfaces the conflict and requires an explicit reconciliation path.
+
+## Pull-request lifecycle
+
+<Steps>
+
+<Step>Create the proposal branch</Step>
+
+Write the workflow and source changes against the verified base.
+
+<Step>Open or update the pull request</Step>
+
+Keep one proposal identity connected to the corresponding GitHub pull request.
+
+<Step>Observe the proposal head</Step>
+
+Treat every new head commit as a new executable candidate.
+
+<Step>Review and approve</Step>
+
+Use normal GitHub review, checks, ownership, and merge controls.
+
+</Steps>
+
+## Git remains authoritative
+
+Flowcordia adds a visual collaboration surface without replacing the repository’s governed history.
+
+Next: [Preview deployments](/docs/preview-deployments).
