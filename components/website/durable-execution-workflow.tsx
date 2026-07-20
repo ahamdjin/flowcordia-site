@@ -327,7 +327,11 @@ function ClosedPreview() {
               Production deploy
             </span>
             <span className='font-mono text-[9px] text-zinc-400 dark:text-zinc-500'>
-              retry 2 / 3
+              {phase < 5
+                ? '3 attempts max'
+                : phase < 8
+                  ? 'attempt 1 / 3'
+                  : 'attempt 2 / 3'}
             </span>
           </div>
           <AttemptLog phase={phase} />
