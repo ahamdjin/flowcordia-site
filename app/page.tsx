@@ -156,10 +156,7 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding
-            className='px-8 md:px-20 [&>div]:h-52 [&>div]:justify-start'
-            hasReTrigger
-          >
+          <CardExampleLanding className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[560px]'>
             <TextEffectSpeed />
           </CardExampleLanding>
         </section>

@@ -1,9 +1,5 @@
-import { TextEffect } from '@/components/core/text-effect';
+import { DurableExecutionWorkflow } from '@/components/website/durable-execution-workflow';
 
 export function TextEffectSpeed() {
-  return (
-    <TextEffect preset='fade-in-blur' speedReveal={1.1} speedSegment={0.3}>
-      One workflow. From canvas to code to production.
-    </TextEffect>
-  );
+  return <DurableExecutionWorkflow />;
 }
