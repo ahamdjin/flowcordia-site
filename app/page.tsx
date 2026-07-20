@@ -146,7 +146,7 @@ export default function Motion() {
           </span>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='p-0 [&>div]:h-[560px] sm:[&>div]:h-[500px]'>
+          <CardExampleLanding className='p-0 [&>div]:h-[720px] sm:[&>div]:h-[520px]'>
             <MorphingDialogBasicOne />
           </CardExampleLanding>
         </section>
