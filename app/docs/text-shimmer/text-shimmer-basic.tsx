@@ -1,9 +1,5 @@
-import { TextShimmer } from '@/components/core/text-shimmer';
+import { PolicyLoomWorkflow } from '@/components/website/policy-loom-workflow';
 
 export function TextShimmerBasic() {
-  return (
-    <TextShimmer className='font-mono text-sm' duration={1}>
-      Building exact preview...
-    </TextShimmer>
-  );
+  return <PolicyLoomWorkflow />;
 }
