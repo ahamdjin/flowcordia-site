@@ -161,7 +161,7 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding hasReTrigger>
+          <CardExampleLanding className='p-0 [&>div]:h-[860px] sm:[&>div]:h-[590px]'>
             <InViewImagesGrid />
           </CardExampleLanding>
         </section>
