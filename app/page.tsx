@@ -166,7 +166,7 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='px-0'>
+          <CardExampleLanding className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[590px]'>
             <InfiniteSliderHoverSpeed />
           </CardExampleLanding>
         </section>
