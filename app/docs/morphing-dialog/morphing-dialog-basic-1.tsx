@@ -3,98 +3,85 @@ import {
   MorphingDialogTrigger,
   MorphingDialogContent,
   MorphingDialogTitle,
-  MorphingDialogImage,
   MorphingDialogSubtitle,
   MorphingDialogClose,
   MorphingDialogDescription,
   MorphingDialogContainer,
 } from '@/components/core/morphing-dialog';
-import { PlusIcon } from 'lucide-react';
+import {
+  CodeCanvasDetails,
+  CodeCanvasPreview,
+} from '@/components/website/code-canvas-sync';
 
 export function MorphingDialogBasicOne() {
   return (
     <MorphingDialog
       transition={{
         type: 'spring',
-        bounce: 0.05,
-        duration: 0.25,
+        bounce: 0.04,
+        duration: 0.32,
       }}
     >
       <MorphingDialogTrigger
         style={{
           borderRadius: '12px',
         }}
-        className='flex max-w-[270px] flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900'
+        className='group flex h-full w-full flex-col overflow-hidden bg-white text-left dark:bg-zinc-950'
       >
-        <MorphingDialogImage
-          src='/flowcordia-workflow.svg'
-          alt='A Flowcordia workflow connecting a trigger, typed function, Git proposal, and task.'
-          className='h-48 w-full object-cover'
-        />
-        <div className='flex grow flex-row items-end justify-between px-3 py-2'>
-          <div>
-            <MorphingDialogTitle className='text-zinc-950 dark:text-zinc-50'>
-              Lead intake
+        <div className='flex items-start justify-between gap-8 px-7 pt-7 pb-6 sm:px-10 sm:pt-9 sm:pb-7'>
+          <div className='max-w-xl'>
+            <div className='text-[10px] font-medium tracking-[0.09em] text-zinc-400 uppercase dark:text-zinc-500'>
+              01 · One workflow, two surfaces
+            </div>
+            <MorphingDialogTitle className='mt-3 text-2xl font-medium tracking-[-0.035em] text-zinc-950 dark:text-zinc-50 sm:text-3xl'>
+              Code and canvas are the same workflow.
             </MorphingDialogTitle>
-            <MorphingDialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
-              Canvas · code · Git
+            <MorphingDialogSubtitle className='mt-3 max-w-lg text-sm leading-6 text-zinc-500 dark:text-zinc-400'>
+              Write it in TypeScript and the canvas forms beside it. Change it
+              visually and Flowcordia returns an exact source diff for review.
             </MorphingDialogSubtitle>
           </div>
-          <button
-            type='button'
-            className='relative ml-1 flex h-6 w-6 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-500'
-            aria-label='Open workflow details'
-          >
-            <PlusIcon size={12} />
-          </button>
+
+          <div className='hidden shrink-0 pt-1 font-mono text-[10px] text-zinc-400 sm:block dark:text-zinc-500'>
+            release.workflow.ts · synced
+          </div>
         </div>
+
+        <CodeCanvasPreview />
       </MorphingDialogTrigger>
+
       <MorphingDialogContainer>
         <MorphingDialogContent
           style={{
             borderRadius: '24px',
           }}
-          className='pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[500px]'
+          className='pointer-events-auto relative flex max-h-[calc(100vh-32px)] w-[calc(100vw-32px)] max-w-[1040px] flex-col overflow-y-auto border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-950'
         >
-          <MorphingDialogImage
-            src='/flowcordia-workflow.svg'
-            alt='A Flowcordia workflow connecting a trigger, typed function, Git proposal, and task.'
-            className='h-full w-full'
-          />
-          <div className='p-6'>
-            <MorphingDialogTitle className='text-2xl text-zinc-950 dark:text-zinc-50'>
-              One workflow identity
+          <div className='px-7 pt-7 pb-6 pr-16 sm:px-9 sm:pt-9 sm:pb-8'>
+            <div className='text-[10px] font-medium tracking-[0.09em] text-zinc-400 uppercase dark:text-zinc-500'>
+              Synchronized workflow
+            </div>
+            <MorphingDialogTitle className='mt-3 max-w-2xl text-2xl font-medium tracking-[-0.035em] text-zinc-950 dark:text-zinc-50 sm:text-3xl'>
+              One workflow. Two ways to work.
             </MorphingDialogTitle>
-            <MorphingDialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
-              From canvas to exact execution
+            <MorphingDialogSubtitle className='mt-3 max-w-3xl text-sm leading-6 text-zinc-500 dark:text-zinc-400'>
+              Select a source line or canvas step. Change the approval timeout and
+              inspect the exact Git proposal developers would review.
             </MorphingDialogSubtitle>
-            <MorphingDialogDescription
-              disableLayoutAnimation
-              variants={{
-                initial: { opacity: 0, scale: 0.8, y: 100 },
-                animate: { opacity: 1, scale: 1, y: 0 },
-                exit: { opacity: 0, scale: 0.8, y: 100 },
-              }}
-            >
-              <p className='mt-2 text-zinc-500 dark:text-zinc-500'>
-                A workflow keeps the same identity across its visual canvas,
-                canonical document, generated source, Git proposal, deployment,
-                and run history.
-              </p>
-              <p className='text-zinc-500'>
-                Builders compose the flow visually. Developers extend it with
-                typed functions. Production changes remain reviewable and
-                reversible through Git.
-              </p>
-              <a
-                className='mt-2 inline-flex text-zinc-500 underline'
-                href='/docs/workflow-model'
-              >
-                Read the workflow model
-              </a>
-            </MorphingDialogDescription>
           </div>
-          <MorphingDialogClose className='text-zinc-50' />
+
+          <MorphingDialogDescription
+            disableLayoutAnimation
+            variants={{
+              initial: { opacity: 0, y: 12 },
+              animate: { opacity: 1, y: 0 },
+              exit: { opacity: 0, y: 12 },
+            }}
+          >
+            <CodeCanvasDetails />
+          </MorphingDialogDescription>
+
+          <MorphingDialogClose className='flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-50' />
         </MorphingDialogContent>
       </MorphingDialogContainer>
     </MorphingDialog>
