@@ -171,7 +171,7 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding>
+          <CardExampleLanding className='p-0 [&>div]:h-[900px] sm:[&>div]:h-[620px]'>
             <Cursor1 />
           </CardExampleLanding>
         </section>
