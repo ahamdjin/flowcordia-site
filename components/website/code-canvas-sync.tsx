@@ -161,12 +161,12 @@ function PreviewSource({ stage }: { stage: number }) {
 
   return (
     <div className='flex min-h-0 flex-1 flex-col border-b border-zinc-200 bg-zinc-950 sm:border-r sm:border-b-0 dark:border-zinc-800'>
-      <div className='flex h-10 items-center justify-between border-b border-white/10 px-4'>
-        <span className='font-mono text-[10px] text-zinc-400'>release.workflow.ts</span>
-        <span className='text-[9px] font-medium tracking-[0.08em] text-zinc-500 uppercase'>TypeScript</span>
+      <div className='flex h-9 items-center justify-between border-b border-white/10 px-4 sm:h-10'>
+        <span className='font-mono text-[9px] text-zinc-400 sm:text-[10px]'>release.workflow.ts</span>
+        <span className='text-[8px] font-medium tracking-[0.08em] text-zinc-500 uppercase sm:text-[9px]'>TypeScript</span>
       </div>
 
-      <div className='min-h-0 flex-1 overflow-hidden px-3 py-4 font-mono text-[10px] leading-6 sm:px-4 sm:text-[11px]'>
+      <div className='min-h-0 flex-1 overflow-hidden px-3 py-2 font-mono text-[8px] leading-[13px] sm:px-4 sm:py-4 sm:text-[11px] sm:leading-6'>
         {SOURCE_LINES.map((line) => {
           const isVisible = stage >= line.revealAt;
           const step = 'step' in line ? line.step : undefined;
@@ -184,12 +184,12 @@ function PreviewSource({ stage }: { stage: number }) {
           return (
             <div
               key={line.number}
-              className={`grid grid-cols-[22px_minmax(0,1fr)] rounded px-1 transition-colors duration-300 ${
+              className={`grid grid-cols-[18px_minmax(0,1fr)] rounded px-1 transition-colors duration-300 sm:grid-cols-[22px_minmax(0,1fr)] ${
                 isChanged ? 'bg-[#D9A28D]/10' : ''
               }`}
             >
               <span className='select-none text-right text-zinc-700'>{line.number}</span>
-              <div className='min-w-0 pl-3'>
+              <div className='min-w-0 pl-2 sm:pl-3'>
                 <AnimatePresence mode='wait' initial={false}>
                   {isVisible && (
                     <motion.span
@@ -206,7 +206,7 @@ function PreviewSource({ stage }: { stage: number }) {
                       {isWriting && (
                         <motion.span
                           aria-hidden='true'
-                          className='ml-0.5 inline-block h-3 w-px translate-y-0.5 bg-zinc-300'
+                          className='ml-0.5 inline-block h-2.5 w-px translate-y-0.5 bg-zinc-300 sm:h-3'
                           animate={{ opacity: [1, 0, 1] }}
                           transition={{ duration: 0.7, repeat: Infinity }}
                         />
@@ -228,15 +228,15 @@ function PreviewCanvas({ stage }: { stage: number }) {
 
   return (
     <div className='flex min-h-0 flex-1 flex-col bg-white dark:bg-zinc-950'>
-      <div className='flex h-10 items-center justify-between border-b border-zinc-200 px-4 dark:border-zinc-800'>
-        <span className='text-[10px] font-medium text-zinc-500 dark:text-zinc-400'>Visual canvas</span>
-        <span className='font-mono text-[9px] text-zinc-400 dark:text-zinc-500'>release</span>
+      <div className='flex h-9 items-center justify-between border-b border-zinc-200 px-4 sm:h-10 dark:border-zinc-800'>
+        <span className='text-[9px] font-medium text-zinc-500 sm:text-[10px] dark:text-zinc-400'>Visual canvas</span>
+        <span className='font-mono text-[8px] text-zinc-400 sm:text-[9px] dark:text-zinc-500'>release</span>
       </div>
 
-      <div className='relative flex min-h-0 flex-1 flex-col justify-center px-5 py-4 sm:px-6'>
-        <div className='absolute top-[12%] bottom-[12%] left-[31px] w-px bg-zinc-200 sm:left-[39px] dark:bg-zinc-800' />
+      <div className='relative flex min-h-0 flex-1 flex-col justify-center px-4 py-2 sm:px-6 sm:py-4'>
+        <div className='absolute top-[10%] bottom-[10%] left-[21px] w-px bg-zinc-200 sm:top-[12%] sm:bottom-[12%] sm:left-[39px] dark:bg-zinc-800' />
 
-        <div className='relative space-y-2.5'>
+        <div className='relative space-y-1.5 sm:space-y-2.5'>
           {WORKFLOW_STEPS.map((step) => {
             const visible = stage >= step.revealAt;
             const active =
@@ -250,28 +250,28 @@ function PreviewCanvas({ stage }: { stage: number }) {
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                    className='relative flex items-center gap-3'
+                    className='relative flex items-center gap-2 sm:gap-3'
                   >
                     <span
                       aria-hidden='true'
-                      className={`relative z-10 h-3 w-3 shrink-0 rounded-full border-2 transition-colors duration-300 ${
+                      className={`relative z-10 h-2.5 w-2.5 shrink-0 rounded-full border-2 transition-colors duration-300 sm:h-3 sm:w-3 ${
                         active
                           ? 'border-[#D9A28D] bg-[#D9A28D]'
                           : 'border-zinc-300 bg-white dark:border-zinc-700 dark:bg-zinc-950'
                       }`}
                     />
                     <div
-                      className={`flex min-w-0 flex-1 items-center justify-between gap-3 rounded-lg border px-3 py-2 transition-colors duration-300 ${
+                      className={`flex min-w-0 flex-1 items-center justify-between gap-2 rounded-md border px-2.5 py-1.5 transition-colors duration-300 sm:rounded-lg sm:px-3 sm:py-2 ${
                         active
                           ? 'border-[#D9A28D]/60 bg-[#D9A28D]/5'
                           : 'border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950'
                       }`}
                     >
                       <div className='min-w-0'>
-                        <div className='text-[8px] font-medium tracking-[0.08em] text-zinc-400 uppercase dark:text-zinc-500'>
+                        <div className='text-[7px] font-medium tracking-[0.08em] text-zinc-400 uppercase sm:text-[8px] dark:text-zinc-500'>
                           {step.kind}
                         </div>
-                        <div className='mt-0.5 truncate text-[11px] font-medium text-zinc-900 dark:text-zinc-100'>
+                        <div className='truncate text-[9px] font-medium text-zinc-900 sm:mt-0.5 sm:text-[11px] dark:text-zinc-100'>
                           {step.label}
                         </div>
                       </div>
@@ -282,7 +282,7 @@ function PreviewCanvas({ stage }: { stage: number }) {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
-                            className={`shrink-0 rounded px-1.5 py-0.5 font-mono text-[9px] ${
+                            className={`shrink-0 rounded px-1.5 py-0.5 font-mono text-[8px] sm:text-[9px] ${
                               stage >= 9
                                 ? 'bg-[#D9A28D]/15 text-[#A86550] dark:text-[#E4B8A7]'
                                 : 'bg-zinc-100 text-zinc-500 dark:bg-zinc-900 dark:text-zinc-400'
@@ -311,14 +311,14 @@ export function CodeCanvasPreview() {
 
   return (
     <div ref={sectionRef} className='flex min-h-0 flex-1 flex-col'>
-      <div className='grid min-h-0 flex-1 sm:grid-cols-2'>
+      <div className='grid min-h-0 flex-1 grid-rows-[0.8fr_1.2fr] sm:grid-cols-2 sm:grid-rows-1'>
         <PreviewSource stage={stage} />
         <PreviewCanvas stage={stage} />
       </div>
 
       <div className='flex items-center justify-between gap-5 border-t border-zinc-200 px-5 py-3.5 sm:px-7 dark:border-zinc-800'>
         <SyncStatus stage={stage} />
-        <span className='shrink-0 text-[10px] text-zinc-400 transition-colors group-hover:text-zinc-700 dark:text-zinc-500 dark:group-hover:text-zinc-200'>
+        <span className='hidden shrink-0 text-[10px] text-zinc-400 transition-colors group-hover:text-zinc-700 sm:block dark:text-zinc-500 dark:group-hover:text-zinc-200'>
           Open synchronized workflow →
         </span>
       </div>
@@ -367,7 +367,7 @@ function InteractiveSource({
               type='button'
               onClick={() => onSelect(step)}
               className={`grid w-full grid-cols-[25px_minmax(0,1fr)] rounded px-2 text-left transition-colors focus-visible:ring-1 focus-visible:ring-[#D9A28D] focus-visible:outline-none ${
-                isSelected ? 'bg-white/8' : 'hover:bg-white/5'
+                isSelected ? 'bg-white/[0.08]' : 'hover:bg-white/5'
               }`}
             >
               <span className='select-none text-right text-zinc-700'>{line.number}</span>
@@ -528,11 +528,11 @@ function ProposalPanel({ timeout, onReset }: { timeout: TimeoutValue; onReset: (
             <div className='grid border-t border-zinc-200 bg-zinc-950 font-mono text-[11px] leading-7 dark:border-zinc-800 sm:grid-cols-[1fr_220px]'>
               <div className='px-6 py-4 sm:px-8'>
                 <div className='text-zinc-500'>workflow/release.workflow.ts</div>
-                <div className='mt-2 rounded bg-red-500/8 px-2 text-red-300'>
-                  - awaitApproval({`{ timeout: "24h" }`}),
+                <div className='mt-2 rounded bg-red-500/[0.08] px-2 text-red-300'>
+                  {'- awaitApproval({ timeout: "24h" }),' }
                 </div>
-                <div className='rounded bg-emerald-500/8 px-2 text-emerald-300'>
-                  + awaitApproval({`{ timeout: "2h" }`}),
+                <div className='rounded bg-emerald-500/[0.08] px-2 text-emerald-300'>
+                  {'+ awaitApproval({ timeout: "2h" }),' }
                 </div>
               </div>
               <div className='border-t border-white/10 px-6 py-4 text-zinc-400 sm:border-t-0 sm:border-l sm:px-5'>
