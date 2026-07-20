@@ -529,10 +529,10 @@ function ProposalPanel({ timeout, onReset }: { timeout: TimeoutValue; onReset: (
               <div className='px-6 py-4 sm:px-8'>
                 <div className='text-zinc-500'>workflow/release.workflow.ts</div>
                 <div className='mt-2 rounded bg-red-500/[0.08] px-2 text-red-300'>
-                  {'- awaitApproval({ timeout: "24h" }),' }
+                  {'- awaitApproval({ timeout: "24h" }),'}
                 </div>
                 <div className='rounded bg-emerald-500/[0.08] px-2 text-emerald-300'>
-                  {'+ awaitApproval({ timeout: "2h" }),' }
+                  {'+ awaitApproval({ timeout: "2h" }),'}
                 </div>
               </div>
               <div className='border-t border-white/10 px-6 py-4 text-zinc-400 sm:border-t-0 sm:border-l sm:px-5'>
