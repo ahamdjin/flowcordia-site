@@ -65,8 +65,8 @@ export function MorphingDialogBasicOne() {
               One workflow. Two ways to work.
             </MorphingDialogTitle>
             <MorphingDialogSubtitle className='mt-3 max-w-3xl text-sm leading-6 text-zinc-500 dark:text-zinc-400'>
-              Select a source line or its canvas step. Change the approval timeout
-              visually and inspect the exact Git proposal developers would review.
+              Select a source line or canvas step. Change the approval timeout and
+              inspect the exact Git proposal developers would review.
             </MorphingDialogSubtitle>
           </div>
 
