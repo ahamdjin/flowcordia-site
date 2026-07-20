@@ -151,7 +151,7 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='p-0 [&>div]:h-[760px] sm:[&>div]:h-[560px]'>
+          <CardExampleLanding className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[560px]'>
             <AnimatedGroupPreset />
           </CardExampleLanding>
         </section>
