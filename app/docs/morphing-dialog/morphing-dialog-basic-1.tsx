@@ -37,8 +37,8 @@ export function MorphingDialogBasicOne() {
               Code and canvas are the same workflow.
             </MorphingDialogTitle>
             <MorphingDialogSubtitle className='mt-3 max-w-lg text-sm leading-6 text-zinc-500 dark:text-zinc-400'>
-              Write the workflow in TypeScript. Flowcordia builds the visual system
-              beside it, then turns visual changes back into reviewable source.
+              Write it in TypeScript and the canvas forms beside it. Change it
+              visually and Flowcordia returns an exact source diff for review.
             </MorphingDialogSubtitle>
           </div>
 
@@ -66,7 +66,7 @@ export function MorphingDialogBasicOne() {
             </MorphingDialogTitle>
             <MorphingDialogSubtitle className='mt-3 max-w-3xl text-sm leading-6 text-zinc-500 dark:text-zinc-400'>
               Select a source line or its canvas step. Change the approval timeout
-              visually and Flowcordia will produce the exact Git diff developers review.
+              visually and inspect the exact Git proposal developers would review.
             </MorphingDialogSubtitle>
           </div>
 
