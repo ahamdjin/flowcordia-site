@@ -102,7 +102,7 @@ export default function ChangelogPage() {
         title: 'Follow development at the source.',
         description:
           'The repository is the complete record today. Tagged releases and curated release notes will be added when Flowcordia reaches a supported distribution stage.',
-        actions={[
+        actions: [
           {
             label: 'Application repository',
             href: 'https://github.com/ahamdjin/Flowcordia',
@@ -114,7 +114,8 @@ export default function ChangelogPage() {
             href: 'https://github.com/ahamdjin/Flowcordia/blob/main/flowcordia/product/capability-matrix.md',
             external: true,
           },
-        ]}
-      />
+        ],
+      }}
+    />
   );
 }
