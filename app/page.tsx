@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { MorphingDialogBasicOne } from '@/app/docs/morphing-dialog/morphing-dialog-basic-1';
-import XIcon from '@/components/website/icons/x';
 import GitHubIcon from '@/components/website/icons/github';
-import ThemeSwitch from '@/components/website/theme-switch';
 import { MorphingPopoverTextarea } from '@/app/docs/morphing-popover/morphing-popover-textarea';
 import { ChevronRight } from 'lucide-react';
 import { CardExampleLanding } from '@/components/website/card-example-landing';
@@ -12,7 +10,7 @@ import { InViewImagesGrid } from '@/app/docs/in-view/in-view-images-grid';
 import { InfiniteSliderHoverSpeed } from '@/app/docs/infinite-slider/infinite-slider-hover-speed';
 import { Cursor1 } from '@/app/docs/cursor/cursor-1';
 import { SegmentedControl } from '@/app/docs/animated-background/segmented-control';
-import { FlowcordiaLogo } from '@/components/website/flowcordia-logo';
+import { Header } from '@/components/website/header';
 import { SiteFooter } from '@/components/website/site-footer';
 import { TextLoopBasic } from './docs/text-loop/text-loop-basic';
 import { TextShimmerBasic } from './docs/text-shimmer/text-shimmer-basic';
@@ -40,71 +38,6 @@ function Button({
     >
       {children}
     </button>
-  );
-}
-
-function Header() {
-  return (
-    <header className='relative top-0 z-10 bg-white px-6 py-5 lg:z-10 lg:flex lg:h-16 lg:items-center lg:px-8 lg:py-0 dark:border-white/10 dark:bg-zinc-950'>
-      <div className='mx-auto flex w-full items-center justify-between md:max-w-7xl'>
-        <a href='/' className='relative flex items-center space-x-2'>
-          <FlowcordiaLogo className='h-6 w-auto' />
-          <div className='text-sm font-medium text-zinc-950 dark:text-white'>
-            Flowcordia
-          </div>
-          <span className='mb-4 ml-0 rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-50 select-none'>
-            alpha
-          </span>
-        </a>
-
-        <div className='flex items-center space-x-6'>
-          <nav className='hidden items-center space-x-6 sm:flex'>
-            <Link
-              href='/'
-              className='hidden items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 md:inline-flex dark:text-zinc-300 dark:hover:text-white'
-            >
-              Product
-            </Link>
-            <a
-              href='https://github.com/ahamdjin/Flowcordia/issues'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='hidden items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 md:inline-flex dark:text-zinc-300 dark:hover:text-white'
-            >
-              Roadmap
-            </a>
-            <Link
-              href='/docs'
-              className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
-            >
-              Docs
-            </Link>
-          </nav>
-          <div className='hidden h-8 w-[0.5px] bg-zinc-200 sm:flex dark:bg-zinc-800' />
-          <nav className='flex items-center space-x-2'>
-            <a
-              href='https://github.com/ahamdjin/Flowcordia/discussions'
-              target='_blank'
-              rel='noopener noreferrer'
-              aria-label='Flowcordia community discussions'
-              className='inline-flex h-9 w-9 items-center justify-center'
-            >
-              <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
-            </a>
-            <a
-              href='https://github.com/ahamdjin/Flowcordia'
-              target='_blank'
-              rel='noopener noreferrer'
-              aria-label='Flowcordia on GitHub'
-              className='inline-flex h-9 w-9 items-center justify-center'
-            >
-              <GitHubIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
-            </a>
-            <ThemeSwitch />
-          </nav>
-        </div>
-      </div>
-    </header>
   );
 }
 
