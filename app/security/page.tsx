@@ -113,7 +113,7 @@ export default function SecurityPage() {
         title: 'Review the threat boundaries before deploying.',
         description:
           'The repository security directory, architecture records, connection registry, and release-readiness gates are the authoritative sources for delivered behavior and known limitations.',
-        actions={[
+        actions: [
           {
             label: 'Security directory',
             href: 'https://github.com/ahamdjin/Flowcordia/tree/main/flowcordia/security',
@@ -130,7 +130,8 @@ export default function SecurityPage() {
             href: 'https://github.com/ahamdjin/Flowcordia/issues/new',
             external: true,
           },
-        ]}
-      />
+        ],
+      }}
+    />
   );
 }
