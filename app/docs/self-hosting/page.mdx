@@ -1,49 +1,131 @@
 export const metadata = {
   title: 'Self-hosting - Flowcordia',
   description:
-    'Understand the intended self-hosted architecture and the current onboarding boundary.',
+    'Prepare a Flowcordia web, worker, database, GitHub App, and Trigger.dev installation using the repository preflight and release gates.',
 };
 
 # Self-hosting
 
-Flowcordia is designed as an open-source platform that can run within infrastructure controlled by its operators.
+Flowcordia is open source and designed to run inside infrastructure controlled by its operators.
 
-## Architecture
+> **Current maturity: internal alpha.** The repository includes configuration preflight, live-dependency checks, migrations, rollout controls, and release runbooks. It does not yet provide a one-command public installer or a production support promise.
 
-A complete deployment may include:
+## Deployment components
 
-- The Flowcordia web application and control plane
-- PostgreSQL for durable product state
-- Object storage for larger artifacts
-- Trigger.dev services for durable execution
-- GitHub App credentials for repository collaboration
-- Runtime environments and secret storage
+A complete installation may include:
 
-## Current boundary
+| Component | Responsibility |
+| :-- | :-- |
+| Web application | Authenticated product UI, Studio, repository configuration, proposals, validation, and run views |
+| PostgreSQL | Durable drafts, proposal state, audit, outbox, reconciliation, and application state |
+| Proposal worker | Dedicated durable proposal operations; it should not run on every web replica |
+| GitHub App | Repository discovery, exact reads, branches, pull requests, checks, reviews, promotion, and rollback history |
+| Trigger.dev execution plane | Deployments, workers, queues, durable waits, retries, traces, logs, and runs |
+| Operator infrastructure | TLS, domains, object storage, secrets, backups, retention, telemetry, and alerting |
 
-The product foundation is being built before a one-command public self-hosting experience is presented as complete. Manual internal setup should not be documented as polished onboarding.
+Git remains the durable workflow and review history. Trigger.dev remains the execution foundation. Flowcordia connects those systems through explicit contracts rather than duplicating them.
 
-## Configuration ownership
+## Requirements
 
-Operators should control:
+- Node.js `20.20.2`
+- pnpm `10.33.2`
+- Docker for database-backed and end-to-end suites
+- PostgreSQL
+- A GitHub App with the required repository permissions
+- A connected Trigger.dev runtime and worker environment
 
-- Application and database credentials
-- GitHub App installation and permissions
-- Runtime projects and environments
-- Deployment domains and TLS
-- Secret values used by workflows
-- Backups, retention, and observability
+```bash
+pnpm install --frozen-lockfile
+pnpm run typecheck
+pnpm run test:packages
+pnpm run test:webapp
+pnpm run build --filter webapp
+```
 
-## Data boundaries
+## Installation preflight
 
-Repository source remains in GitHub. Runtime execution data remains in the durable runtime and connected infrastructure. Flowcordia stores the control-plane identities needed to connect workflows, proposals, deployments, and runs.
+The preflight is a deterministic, read-only configuration gate. It validates configuration shape and safe rollout defaults before migrations, network calls, or provider mutation.
+
+```bash
+pnpm exec tsx scripts/flowcordia-installation-preflight.ts --profile web
+pnpm exec tsx scripts/flowcordia-installation-preflight.ts --profile worker
+pnpm exec tsx scripts/flowcordia-installation-preflight.ts --profile release
+```
+
+For sanitized machine-readable evidence:
+
+```bash
+pnpm exec tsx scripts/flowcordia-installation-preflight.ts \
+  --profile release \
+  --json
+```
+
+Exit codes:
+
+- `0` — every configuration check is `READY`
+- `1` — one or more checks are `BLOCKED`
+- `2` — command usage is invalid
+
+The output never includes environment values, lengths, hosts, IDs, URLs, keys, or partial secrets.
+
+## Fresh installation sequence
+
+1. Select one exact Flowcordia commit and build every web and worker image from that revision.
+2. Configure separate web and proposal-worker deployments.
+3. Run the `web`, `worker`, and `release` preflight profiles.
+4. Create and verify a PostgreSQL backup before applying migrations.
+5. Apply migrations once through a controlled migration owner.
+6. Deploy the proposal worker and require a healthy durable heartbeat.
+7. Deploy the web application while global Studio access remains disabled.
+8. Run live-dependency preflight against PostgreSQL, migrations, GitHub App authentication, and worker health.
+9. Run repository-readiness and operations-readiness checks.
+10. Complete the connected browser → GitHub → preview → execution → promotion → rollback acceptance procedure.
+
+## Studio rollout
+
+The safe default is:
+
+```bash
+FLOWCORDIA_STUDIO_ENABLED=0
+```
+
+Enable `hasFlowcordiaStudioAccess` only for a selected internal organization after the connected environment is ready. Global access must not be enabled merely because repository CI is green.
+
+The release preflight blocks a global Studio override unless the operator deliberately acknowledges it:
+
+```bash
+pnpm exec tsx scripts/flowcordia-installation-preflight.ts \
+  --profile release \
+  --allow-global-studio
+```
+
+This acknowledgment does not bypass application authorization, repository readiness, worker readiness, policy, or connected acceptance.
 
 ## Upgrade discipline
 
-A self-hosted release should include migrations, compatibility notes, health checks, rollback guidance, and explicit versions for the application and runtime dependencies.
+A controlled upgrade should:
 
-## Planned guidance
+1. Record the current application commit, images, migration state, and worker identity.
+2. Resolve existing blocked preflight checks before changing code.
+3. Build candidate web and worker images from one exact new commit.
+4. Run candidate preflight profiles without printing environment values.
+5. Take and verify a restorable database backup.
+6. Review migration compatibility and exact release notes.
+7. Apply migrations through one controlled job.
+8. Upgrade the worker and verify its heartbeat before web replicas.
+9. Re-run live dependency, repository, operations, preview, promotion, production, and rollback evidence.
 
-Public self-hosting documentation will expand when installation, upgrades, backups, reconciliation, and failure recovery can be described as one tested path.
+An application rollback must use an image compatible with the already-applied schema. Do not invent a generic down migration or delete migration records to force compatibility.
 
-See [Capability status](/docs/capability-status) for the current product boundary.
+## Current limitations
+
+Flowcordia does not yet claim:
+
+- One-command installation or guided onboarding
+- Tested backup and restore as a supported public path
+- Supported high availability or disaster recovery
+- Automated upgrades and compatibility guarantees
+- Uptime, retention, deprecation, or support commitments
+- Production readiness without a preserved connected reference acceptance record
+
+See the [Capability status](/docs/capability-status), [public self-hosting overview](/self-hosting), and the repository [installation preflight](https://github.com/ahamdjin/Flowcordia/blob/main/flowcordia/runbooks/installation-preflight.md).
