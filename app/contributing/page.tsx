@@ -141,7 +141,7 @@ export default function ContributingPage() {
         title: 'Begin with context, not code.',
         description:
           'Read the engineering index and contribution discipline, then use Discussions for broad direction or Issues for a scoped, reproducible boundary.',
-        actions={[
+        actions: [
           {
             label: 'Engineering index',
             href: 'https://github.com/ahamdjin/Flowcordia/blob/main/flowcordia/README.md',
@@ -158,7 +158,8 @@ export default function ContributingPage() {
             href: 'https://github.com/ahamdjin/Flowcordia/discussions',
             external: true,
           },
-        ]}
-      />
+        ],
+      }}
+    />
   );
 }
