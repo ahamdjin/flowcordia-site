@@ -121,7 +121,7 @@ export default function CommunityPage() {
         title: 'Start with the conversation closest to your intent.',
         description:
           'Use Discussions for questions and direction, Issues for scoped work, and the contribution guide before proposing code.',
-        actions={[
+        actions: [
           {
             label: 'GitHub Discussions',
             href: 'https://github.com/ahamdjin/Flowcordia/discussions',
@@ -136,7 +136,8 @@ export default function CommunityPage() {
             label: 'Roadmap',
             href: '/roadmap',
           },
-        ]}
-      />
+        ],
+      }}
+    />
   );
 }
