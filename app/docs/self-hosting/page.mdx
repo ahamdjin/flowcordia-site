@@ -34,31 +34,25 @@ Git remains the durable workflow and review history. Trigger.dev remains the exe
 - A GitHub App with the required repository permissions
 - A connected Trigger.dev runtime and worker environment
 
-```bash
-pnpm install --frozen-lockfile
+<pre><code>{`pnpm install --frozen-lockfile
 pnpm run typecheck
 pnpm run test:packages
 pnpm run test:webapp
-pnpm run build --filter webapp
-```
+pnpm run build --filter webapp`}</code></pre>
 
 ## Installation preflight
 
 The preflight is a deterministic, read-only configuration gate. It validates configuration shape and safe rollout defaults before migrations, network calls, or provider mutation.
 
-```bash
-pnpm exec tsx scripts/flowcordia-installation-preflight.ts --profile web
+<pre><code>{`pnpm exec tsx scripts/flowcordia-installation-preflight.ts --profile web
 pnpm exec tsx scripts/flowcordia-installation-preflight.ts --profile worker
-pnpm exec tsx scripts/flowcordia-installation-preflight.ts --profile release
-```
+pnpm exec tsx scripts/flowcordia-installation-preflight.ts --profile release`}</code></pre>
 
 For sanitized machine-readable evidence:
 
-```bash
-pnpm exec tsx scripts/flowcordia-installation-preflight.ts \
+<pre><code>{`pnpm exec tsx scripts/flowcordia-installation-preflight.ts \
   --profile release \
-  --json
-```
+  --json`}</code></pre>
 
 Exit codes:
 
@@ -85,19 +79,15 @@ The output never includes environment values, lengths, hosts, IDs, URLs, keys, o
 
 The safe default is:
 
-```bash
-FLOWCORDIA_STUDIO_ENABLED=0
-```
+<pre><code>{`FLOWCORDIA_STUDIO_ENABLED=0`}</code></pre>
 
 Enable `hasFlowcordiaStudioAccess` only for a selected internal organization after the connected environment is ready. Global access must not be enabled merely because repository CI is green.
 
 The release preflight blocks a global Studio override unless the operator deliberately acknowledges it:
 
-```bash
-pnpm exec tsx scripts/flowcordia-installation-preflight.ts \
+<pre><code>{`pnpm exec tsx scripts/flowcordia-installation-preflight.ts \
   --profile release \
-  --allow-global-studio
-```
+  --allow-global-studio`}</code></pre>
 
 This acknowledgment does not bypass application authorization, repository readiness, worker readiness, policy, or connected acceptance.
 
