@@ -133,7 +133,7 @@ export default function ArchitecturePage() {
         title: 'Inspect the actual contracts.',
         description:
           'The public engineering index links the architecture map, connection registry, decision records, security boundaries, testing matrices, and release runbooks used to keep the product connected.',
-        actions={[
+        actions: [
           {
             label: 'Engineering index',
             href: 'https://github.com/ahamdjin/Flowcordia/blob/main/flowcordia/README.md',
@@ -150,7 +150,8 @@ export default function ArchitecturePage() {
             href: 'https://github.com/ahamdjin/Flowcordia/blob/main/flowcordia/connections/README.md',
             external: true,
           },
-        ]}
-      />
+        ],
+      }}
+    />
   );
 }
