@@ -1,30 +1,12 @@
 import Link from 'next/link';
+import { MessagesSquare } from 'lucide-react';
 import { FlowcordiaLogo } from './flowcordia-logo';
-import XIcon from './icons/x';
 import GitHubIcon from './icons/github';
 import ThemeSwitch from './theme-switch';
-import { GlowEffect } from '@/components/core/glow-effect';
-
-export function ProBadge() {
-  return (
-    <span className='relative mb-4 ml-2 inline-flex items-center select-none'>
-      <GlowEffect
-        colors={['#FF5733', '#33FF57', '#3357FF', '#F1C40F']}
-        mode='colorShift'
-        blur='soft'
-        duration={3}
-        scale={0.9}
-      />
-      <span className='relative rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] leading-none font-medium text-zinc-50 outline outline-[#565656a6]'>
-        new
-      </span>
-    </span>
-  );
-}
 
 export function Header() {
   return (
-    <header className='sticky top-0 z-10 flex h-16 items-center justify-center border-b border-zinc-200 bg-white px-6 py-5 dark:border-white/10 dark:bg-zinc-950'>
+    <header className='sticky top-0 z-30 flex h-16 items-center justify-center border-b border-zinc-200 bg-white/95 px-6 backdrop-blur dark:border-white/10 dark:bg-zinc-950/95'>
       <div className='mx-auto flex w-full items-center justify-between md:max-w-7xl'>
         <Link href='/' className='relative flex items-center space-x-2'>
           <FlowcordiaLogo className='h-6 w-auto' />
@@ -35,48 +17,59 @@ export function Header() {
             alpha
           </span>
         </Link>
-        <div className='flex items-center space-x-6'>
-          <nav className='hidden items-center space-x-6 sm:flex'>
+
+        <div className='flex items-center space-x-5'>
+          <nav className='hidden items-center space-x-5 sm:flex'>
             <Link
               href='/'
-              className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+              className='hidden text-sm font-medium text-zinc-700 transition-colors hover:text-zinc-950 md:inline-flex dark:text-zinc-300 dark:hover:text-white'
             >
               Product
             </Link>
-            <a
-              href='https://github.com/ahamdjin/Flowcordia/issues'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='inline-flex items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+            <Link
+              href='/self-hosting'
+              className='hidden text-sm font-medium text-zinc-700 transition-colors hover:text-zinc-950 md:inline-flex dark:text-zinc-300 dark:hover:text-white'
+            >
+              Self-hosting
+            </Link>
+            <Link
+              href='/roadmap'
+              className='hidden text-sm font-medium text-zinc-700 transition-colors hover:text-zinc-950 lg:inline-flex dark:text-zinc-300 dark:hover:text-white'
             >
               Roadmap
-            </a>
+            </Link>
+            <Link
+              href='/community'
+              className='hidden text-sm font-medium text-zinc-700 transition-colors hover:text-zinc-950 xl:inline-flex dark:text-zinc-300 dark:hover:text-white'
+            >
+              Community
+            </Link>
             <Link
               href='/docs'
-              className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+              className='text-sm font-medium text-zinc-700 transition-colors hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
             >
               Docs
             </Link>
           </nav>
-          <div className='hidden h-8 w-[0.5px] bg-zinc-200 sm:flex dark:bg-zinc-800' />
-          <nav className='flex items-center space-x-2'>
-            <a
-              href='https://github.com/ahamdjin/Flowcordia/discussions'
-              target='_blank'
-              rel='noopener noreferrer'
-              aria-label='Flowcordia community discussions'
-              className='inline-flex h-9 w-9 items-center justify-center'
+
+          <div className='hidden h-8 w-px bg-zinc-200 sm:block dark:bg-zinc-800' />
+
+          <nav className='flex items-center space-x-1'>
+            <Link
+              href='/community'
+              aria-label='Flowcordia community'
+              className='inline-flex h-9 w-9 items-center justify-center rounded-md text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-zinc-900 dark:hover:text-white'
             >
-              <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
-            </a>
+              <MessagesSquare className='h-4 w-4' />
+            </Link>
             <a
               href='https://github.com/ahamdjin/Flowcordia'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Flowcordia on GitHub'
-              className='inline-flex h-9 w-9 items-center justify-center'
+              className='inline-flex h-9 w-9 items-center justify-center rounded-md text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-zinc-900 dark:hover:text-white'
             >
-              <GitHubIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
+              <GitHubIcon className='h-4 w-4 fill-current' />
             </a>
             <ThemeSwitch />
           </nav>
