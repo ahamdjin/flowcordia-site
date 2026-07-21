@@ -138,7 +138,7 @@ export default function RoadmapPage() {
         title: 'The roadmap stays public and falsifiable.',
         description:
           'Read the capability matrix for line-by-line coverage or the release-readiness document for the exact evidence required at each maturity stage.',
-        actions={[
+        actions: [
           {
             label: 'Capability matrix',
             href: 'https://github.com/ahamdjin/Flowcordia/blob/main/flowcordia/product/capability-matrix.md',
@@ -155,7 +155,8 @@ export default function RoadmapPage() {
             href: 'https://github.com/ahamdjin/Flowcordia/discussions',
             external: true,
           },
-        ]}
-      />
+        ],
+      }}
+    />
   );
 }
