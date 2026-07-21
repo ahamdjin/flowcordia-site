@@ -125,7 +125,7 @@ export default function SelfHostingPage() {
         title: 'Deploy from evidence, not optimism.',
         description:
           'Start with the detailed preflight and release-readiness documents. They separate configuration checks, repository CI, live dependency health, and connected acceptance so none is mistaken for another.',
-        actions={[
+        actions: [
           {
             label: 'Detailed self-hosting docs',
             href: '/docs/self-hosting',
@@ -141,7 +141,8 @@ export default function SelfHostingPage() {
             href: 'https://github.com/ahamdjin/Flowcordia/blob/main/flowcordia/product/release-readiness.md',
             external: true,
           },
-        ]}
-      />
+        ],
+      }}
+    />
   );
 }
