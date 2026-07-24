@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 import { MorphingDialogBasicOne } from '@/app/docs/morphing-dialog/morphing-dialog-basic-1';
-import XIcon from '@/components/website/icons/x';
 import GitHubIcon from '@/components/website/icons/github';
 import ThemeSwitch from '@/components/website/theme-switch';
 import { MorphingPopoverTextarea } from '@/app/docs/morphing-popover/morphing-popover-textarea';
@@ -74,6 +73,12 @@ function Header() {
               Roadmap
             </a>
             <Link
+              href='/community'
+              className='hidden items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 md:inline-flex dark:text-zinc-300 dark:hover:text-white'
+            >
+              Community
+            </Link>
+            <Link
               href='/docs'
               className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
             >
@@ -82,15 +87,6 @@ function Header() {
           </nav>
           <div className='hidden h-8 w-[0.5px] bg-zinc-200 sm:flex dark:bg-zinc-800' />
           <nav className='flex items-center space-x-2'>
-            <a
-              href='https://github.com/ahamdjin/Flowcordia/discussions'
-              target='_blank'
-              rel='noopener noreferrer'
-              aria-label='Flowcordia community discussions'
-              className='inline-flex h-9 w-9 items-center justify-center'
-            >
-              <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
-            </a>
             <a
               href='https://github.com/ahamdjin/Flowcordia'
               target='_blank'
