@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { FlowcordiaLogo } from './flowcordia-logo';
-import XIcon from './icons/x';
 import GitHubIcon from './icons/github';
 import ThemeSwitch from './theme-switch';
 import { GlowEffect } from '@/components/core/glow-effect';
@@ -52,6 +51,12 @@ export function Header() {
               Roadmap
             </a>
             <Link
+              href='/community'
+              className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+            >
+              Community
+            </Link>
+            <Link
               href='/docs'
               className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
             >
@@ -60,15 +65,6 @@ export function Header() {
           </nav>
           <div className='hidden h-8 w-[0.5px] bg-zinc-200 sm:flex dark:bg-zinc-800' />
           <nav className='flex items-center space-x-2'>
-            <a
-              href='https://github.com/ahamdjin/Flowcordia/discussions'
-              target='_blank'
-              rel='noopener noreferrer'
-              aria-label='Flowcordia community discussions'
-              className='inline-flex h-9 w-9 items-center justify-center'
-            >
-              <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
-            </a>
             <a
               href='https://github.com/ahamdjin/Flowcordia'
               target='_blank'
