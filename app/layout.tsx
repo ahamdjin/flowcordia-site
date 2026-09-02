@@ -9,9 +9,9 @@ const inter = Inter({ subsets: ['latin'] });
 const geistMono = GeistMono;
 
 export const metadata: Metadata = {
-  title: 'Flowcordia - Build visually. Govern as code.',
+  title: 'Flowcordia - Build in code. Operate visually.',
   description:
-    'Flowcordia is an open-source, Git-native workflow platform connecting a visual studio, typed functions, reviewed changes, and exact-version execution.',
+    'Flowcordia is an open-source platform for building durable workflows in real code and operating the same workflows through a visual layer for teams.',
   icons: {
     icon: [
       {
