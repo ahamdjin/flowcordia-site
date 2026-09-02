@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'Flowcordia — build workflows visually and govern them like code.';
+export const alt = 'Flowcordia — build in code and operate visually.';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -36,14 +36,14 @@ export default function OpenGraphImage() {
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '26px' }}>
-          <div style={{ maxWidth: '940px', fontSize: 68, lineHeight: 1.05, fontWeight: 600 }}>
-            Build workflows visually. Govern them like code.
+          <div style={{ maxWidth: '940px', fontSize: 72, lineHeight: 1.04, fontWeight: 600 }}>
+            Build in code. Operate visually.
           </div>
-          <div style={{ maxWidth: '850px', fontSize: 28, lineHeight: 1.35, color: '#52525b' }}>
-            A Git-native workflow platform connecting Studio, typed functions, reviewed changes, and exact-version execution.
+          <div style={{ maxWidth: '860px', fontSize: 28, lineHeight: 1.35, color: '#52525b' }}>
+            Open-source infrastructure for durable workflows in real code, with a visual operating layer for teams.
           </div>
         </div>
-        <div style={{ fontSize: 22, color: '#71717a' }}>Open source · Built in public</div>
+        <div style={{ fontSize: 22, color: '#71717a' }}>Open source · Self-hostable · Git-native</div>
       </div>
     ),
     size
