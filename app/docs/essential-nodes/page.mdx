@@ -1,0 +1,55 @@
+export const metadata = {
+  title: 'Essential nodes - Flowcordia',
+  description:
+    'Understand Flowcordia Studio wait primitives and the Math, Text, Date, and Store foundation nodes.',
+};
+
+# Essential nodes
+
+Flowcordia Studio exposes a deliberately small set of foundation nodes that can round-trip between the visual builder and the canonical workflow model without creating a second source of truth.
+
+The current Studio work adds durable waits plus four utility nodes backed by pinned, vendored Activepieces pieces.
+
+## Durable waits
+
+The **Wait** node has two modes:
+
+| Mode | Configuration | Runtime behavior |
+| :-- | :-- | :-- |
+| Delay For | A non-negative duration | Compiles to Trigger.dev `wait.for(...)` |
+| Delay Until | A valid date and time | Compiles to Trigger.dev `wait.until(...)` |
+
+Studio presents these through the pinned Activepieces Delay piece, while Flowcordia keeps a canonical `control.wait` contract in the workflow model.
+
+A duration is normalized to seconds. A Delay Until value is normalized to an ISO timestamp before it becomes part of the canonical workflow definition.
+
+## Utility foundation nodes
+
+| Node | Default operation | Purpose |
+| :-- | :-- | :-- |
+| Math | Addition | Deterministic arithmetic operations |
+| Text | Replace | Transform and inspect text values |
+| Date | Get Current Date | Format and calculate dates with an explicit timezone |
+| Store | Get | Read and write scoped workflow state |
+
+These nodes use the vendored Activepieces Math Helper, Text Helper, Date Helper, and Store pieces. The node configuration panel exposes the other operations provided by each pinned piece instead of limiting the node to its default action.
+
+## Native contract, upstream UI
+
+The visual editing experience is hosted inside the upstream Activepieces builder. Flowcordia applies its own Studio shell and theme without replacing the upstream builder implementation.
+
+Flowcordia-owned builder chrome uses a light monochrome treatment. Integration and piece logos keep their original colors so external services remain recognizable.
+
+## Round-trip fidelity
+
+When an Activepieces-backed node moves from Editor to Source and back, Flowcordia preserves the piece settings required to reconstruct it.
+
+Credential references are preserved per node rather than being silently replaced by a workflow-wide connection set. This keeps a visual/source round-trip from changing which credential a piece is intended to use.
+
+## Why pin the pieces
+
+The workflow contract should not change because an upstream package released a new default or renamed an operation. Flowcordia therefore records the piece name, version, operation, and settings used by the Studio node.
+
+That gives the visual surface a stable contract that can be reviewed and reproduced alongside the rest of the workflow.
+
+Next: [Studio](/docs/studio), [Workflow model](/docs/workflow-model), and [Source](/docs/source).

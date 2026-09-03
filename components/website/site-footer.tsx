@@ -18,6 +18,7 @@ const FOOTER_GROUPS: FooterGroup[] = [
     title: 'Product',
     links: [
       { label: 'Studio', href: '/docs/studio' },
+      { label: 'Essential nodes', href: '/docs/essential-nodes' },
       { label: 'Workflow model', href: '/docs/workflow-model' },
       { label: 'Source', href: '/docs/source' },
       { label: 'Typed functions', href: '/docs/typed-functions' },
