@@ -17,6 +17,7 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Introduction',
         href: '/docs',
+        isUpdated: true,
       },
       {
         name: 'Getting started',
@@ -30,14 +31,22 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Studio',
         href: '/docs/studio',
+        isUpdated: true,
+      },
+      {
+        name: 'Essential nodes',
+        href: '/docs/essential-nodes',
+        isNew: true,
       },
       {
         name: 'Workflow model',
         href: '/docs/workflow-model',
+        isUpdated: true,
       },
       {
         name: 'Source',
         href: '/docs/source',
+        isUpdated: true,
       },
       {
         name: 'Typed functions',
@@ -81,6 +90,7 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Capability status',
         href: '/docs/capability-status',
+        isUpdated: true,
       },
     ],
   },
