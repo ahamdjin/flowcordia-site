@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Source - Flowcordia',
   description:
-    'Understand generated workflow source and governed repository-owned source changes.',
+    'Understand generated workflow source, governed repository-owned code, and visual/source round-trip guarantees.',
 };
 
 # Source
@@ -14,17 +14,28 @@ Flowcordia compiles the canonical workflow model into deterministic task source.
 
 Generated source makes the runtime contract inspectable. It is not a hidden implementation detail behind the canvas.
 
+Durable Wait nodes compile to the corresponding Trigger.dev primitive: duration waits use `wait.for(...)`, while absolute waits use `wait.until(...)`.
+
 ## Governed source
 
 Some workflow behavior belongs in repository-owned code. Typed functions, custom transformations, and unsupported structures remain explicit source files reviewed by developers.
 
 Flowcordia keeps these edits in durable source buffers until they are published with the workflow proposal.
 
+## Editor and Source round-trips
+
+Editor and Source are two working surfaces over the same workflow identity. Switching views should not recreate the workflow or discard the mounted visual builder state.
+
+For Activepieces-backed nodes, Flowcordia preserves the settings required to reconstruct the piece after a Source round-trip, including its pinned piece version, selected operation, inputs, and property settings.
+
+Credential references are preserved at the node that owns them. Flowcordia does not intentionally collapse every piece onto a shared workflow-wide connection list during conversion.
+
 ## Separation of responsibility
 
 | Surface | Ownership |
 | :-- | :-- |
 | Canvas configuration | Visual workflow model |
+| Pinned piece settings | Canonical node configuration |
 | Generated task source | Flowcordia compiler |
 | Typed function implementation | Repository owners |
 | Secrets | Runtime environment |
@@ -37,4 +48,4 @@ A proposal can include the canonical workflow document, generated task source, a
 
 Flowcordia does not force arbitrary code into visual nodes. When a construct cannot be represented safely, the source remains authoritative and the visual surface communicates that boundary.
 
-Next: [Typed functions](/docs/typed-functions).
+Next: [Essential nodes](/docs/essential-nodes) and [Typed functions](/docs/typed-functions).
