@@ -14,13 +14,26 @@ Flowcordia is under active development. This page separates the current foundati
 | :-- | :-- |
 | Repository-backed workflow identity | Implemented foundation |
 | Visual Studio and durable drafts | Implemented foundation |
+| Embedded Activepieces builder with Flowcordia Studio shell | Implemented foundation |
+| Editor / Source view preservation | Implemented foundation |
 | Structural preview and deterministic compilation | Implemented foundation |
 | Git proposal lifecycle | Implemented foundation |
 | Typed function catalog and input/output contract | Implemented foundation |
 | Exact proposal-head preview contract | Implemented foundation |
 | Governed source editing | Implemented foundation |
+| Delay For and Delay Until canonical wait contract | Implemented foundation |
+| Math, Text, Date, and Store Studio helpers | Implemented foundation |
+| Per-node piece settings and credential-reference round-trip | Implemented foundation |
 | Public hosted onboarding | In progress |
 | Guided self-hosting | In progress |
+
+## Studio node boundary
+
+The essential helper nodes are backed by pinned vendored Activepieces pieces, while Flowcordia owns the canonical workflow representation and bridge around them. The current helper defaults are Math / Addition, Text / Replace, Date / Get Current Date, and Store / Get.
+
+The Wait node is a Flowcordia `control.wait` contract. Studio maps it to the pinned Activepieces Delay piece, and the runtime compiler maps the same canonical node to Trigger.dev `wait.for(...)` or `wait.until(...)`.
+
+See [Essential nodes](/docs/essential-nodes) for the user-facing contract.
 
 ## Runtime foundation
 
@@ -32,7 +45,7 @@ The following areas should not be described as generally released until their co
 
 - Visual retry-policy configuration
 - Human approval nodes
-- Subflows
+- Subflows as a complete supported product path
 - Batch and parallel controls
 - Idempotency and TTL controls
 - Realtime workflow updates
@@ -41,7 +54,7 @@ The following areas should not be described as generally released until their co
 
 ## Availability is not file existence
 
-A component or route existing in the repository does not automatically mean a capability is enabled, supported, or ready for public use. Product availability depends on connected permissions, control-plane state, runtime support, and a tested end-to-end path.
+A component, catalog entry, or route existing in the repository does not automatically mean a capability is enabled, supported, or ready for public use. Product availability depends on connected permissions, control-plane state, runtime support, and a tested end-to-end path.
 
 ## Documentation rule
 
