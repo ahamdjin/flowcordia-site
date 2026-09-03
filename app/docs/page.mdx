@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Flowcordia Documentation',
   description:
-    'Understand Flowcordia’s visual studio, workflow model, Git proposal lifecycle, typed functions, preview deployments, and runtime boundaries.',
+    'Understand Flowcordia’s visual studio, essential nodes, workflow model, Git proposal lifecycle, typed functions, preview deployments, and runtime boundaries.',
 };
 
 # Flowcordia
@@ -16,7 +16,11 @@ The canvas is not a separate source of truth. A workflow keeps one identity acro
 
 <Step>Build visually</Step>
 
-Compose triggers, conditions, transformations, and tasks in Studio.
+Compose triggers, conditions, transformations, durable waits, and pinned helper nodes in Studio.
+
+<Step>Move between Editor and Source</Step>
+
+Inspect or extend the workflow in Source without turning the visual builder into a second workflow. Supported node settings and credential references are preserved across the round-trip.
 
 <Step>Extend with typed code</Step>
 
@@ -32,18 +36,33 @@ Preview and production execution remain tied to an exact commit and deployment v
 
 </Steps>
 
+## Studio foundations
+
+Studio uses the upstream Activepieces builder inside a Flowcordia-owned shell. Flowcordia defines the canonical workflow contracts and preserves the upstream piece settings needed for supported nodes to round-trip safely.
+
+The current essential-node work includes:
+
+- Delay For and Delay Until backed by a canonical durable wait contract
+- Math with Addition as the default operation
+- Text with Replace as the default operation
+- Date with Get Current Date as the default operation
+- Store with Get as the default operation
+
+Read [Essential nodes](/docs/essential-nodes) for the exact Studio and runtime contracts.
+
 ## What Flowcordia protects
 
 | Boundary | Contract |
 | :-- | :-- |
 | Workflow identity | The same workflow ID follows the canvas, source, proposal, deployment, and run. |
 | Git history | Production changes remain reviewable, attributable, and reversible. |
+| Piece fidelity | Supported Activepieces-backed nodes retain pinned settings and node-level credential references across round-trips. |
 | Secrets | Workflows reference secret names; secret values do not enter workflow documents. |
 | Exact execution | A changed proposal head is treated as a changed executable version. |
 | Unsupported code | Code that cannot be represented safely remains code instead of becoming a misleading graph. |
 
 ## Current status
 
-Flowcordia is under active development in public. The Studio, compiler, Git proposal lifecycle, typed-function contract, and exact-preview path are being developed as connected product foundations rather than isolated demonstrations.
+Flowcordia is under active development in public. The Studio, compiler, Git proposal lifecycle, typed-function contract, essential-node bridge, and exact-preview path are being developed as connected product foundations rather than isolated demonstrations.
 
-Start with [Getting started](/docs/getting-started) or read the [Workflow model](/docs/workflow-model).
+Start with [Getting started](/docs/getting-started), explore [Essential nodes](/docs/essential-nodes), or read the [Workflow model](/docs/workflow-model).
