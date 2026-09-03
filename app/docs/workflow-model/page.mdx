@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Workflow model - Flowcordia',
   description:
-    'Learn how one workflow identity connects the canvas, canonical document, source, Git, deployments, and runs.',
+    'Learn how one workflow identity connects the canvas, canonical document, pinned piece settings, source, Git, deployments, and runs.',
 };
 
 # Workflow model
@@ -23,7 +23,24 @@ The workflow ID remains stable across these representations. A visual edit does 
 
 ## Canonical document
 
-The canonical document records nodes, edges, configuration, function references, and workflow metadata in a deterministic format. Equivalent workflow states should compile to equivalent generated output.
+The canonical document records nodes, edges, configuration, function references, credential references, and workflow metadata in a deterministic format. Equivalent workflow states should compile to equivalent generated output.
+
+Some Studio nodes are implemented through pinned Activepieces pieces. For those nodes, Flowcordia preserves the piece name, piece version, selected operation, inputs, and property settings required to reconstruct the visual step. The upstream builder remains the editing surface; the Flowcordia workflow document remains the governed contract.
+
+## Durable wait contract
+
+Waits use one canonical `control.wait` operation with two configurations:
+
+- `duration` with `durationSeconds`
+- `until` with an ISO `untilTimestamp`
+
+Studio can represent those modes as Delay For and Delay Until. The runtime compiler maps the canonical contract to Trigger.dev `wait.for(...)` or `wait.until(...)` without changing the workflow identity.
+
+## Round-trip fidelity
+
+A visual/source round-trip must preserve the meaning of the node, not merely its position on the canvas. For Activepieces-backed nodes this includes the pinned piece settings and the credential references attached to that specific node.
+
+If Flowcordia cannot reconstruct an upstream piece without losing required information, the conversion should fail instead of silently producing a different workflow.
 
 ## Exact-version rule
 
@@ -37,4 +54,4 @@ When identity cannot be proven across proposal, deployment, and run, execution s
 
 The connected identity makes review, rollback, audit, debugging, and collaboration possible without forcing visual builders and developers into separate systems.
 
-Next: [Typed functions](/docs/typed-functions) and [Git proposals](/docs/git-proposals).
+Next: [Essential nodes](/docs/essential-nodes), [Typed functions](/docs/typed-functions), and [Git proposals](/docs/git-proposals).
