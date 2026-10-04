@@ -9,8 +9,8 @@ export function ProductTour() {
         <section key={card.id} id={card.id} className='scroll-mt-24'>
           <h2>{card.title}</h2>
           <p>
-            {card.status}. This image shows the website demonstration, not a
-            verified production capability.
+            {card.status}. This is a concept or demonstration, not a verified
+            production capability.
           </p>
           <a href={card.image} aria-label={`Open full image: ${card.title}`}>
             <Image

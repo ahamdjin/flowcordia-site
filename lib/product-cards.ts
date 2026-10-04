@@ -51,7 +51,7 @@ export const PRODUCT_CARDS = [
   {
     id: 'policy-loom',
     title: 'Policy as code',
-    image: '/images/product/policy-loom.png',
+    image: '/images/product/policy-illustration.webp',
     guide: '/docs/security',
     status: 'Product concept',
   },
@@ -79,9 +79,9 @@ export const PRODUCT_CARDS = [
   {
     id: 'workflow-views',
     title: 'Workflow views',
-    image: '/images/product/workflow-views.png',
+    image: '/images/product/workflow-views-illustration.webp',
     guide: '/docs/studio',
-    status: 'Interaction study',
+    status: 'Product concept',
   },
 ] as const;
 

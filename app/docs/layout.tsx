@@ -95,11 +95,9 @@ function NavigationDesktop() {
 function NavigationMobile() {
   const router = useRouter();
   const pathname = usePathname();
-  const [selectedHref, setSelectedHref] = React.useState(pathname);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const href = e.target.value;
-    setSelectedHref(href);
     router.push(href);
   };
 
@@ -107,7 +105,8 @@ function NavigationMobile() {
     <div className='block w-full pt-8 md:hidden'>
       <select
         className='block w-full appearance-none rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-white'
-        value={selectedHref}
+        value={pathname}
+        aria-label='Documentation guide'
         onChange={handleChange}
       >
         {NAVIGATION.map((item) => {

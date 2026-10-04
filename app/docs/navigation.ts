@@ -84,6 +84,7 @@ export const NAVIGATION: NavigationGroup[] = [
   {
     name: 'Reference',
     children: [
+      { name: 'Runtime guides', href: '/docs/runtime', isNew: true },
       { name: 'API and MCP', href: '/docs/api', isNew: true },
       { name: 'Troubleshooting', href: '/docs/troubleshooting', isNew: true },
       {

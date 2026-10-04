@@ -11,6 +11,10 @@ Start with the specific failing operation, its HTTP status and server or worker 
 
 Check that the integration package and the workflow's referenced version are installed in the local registry. Reload metadata after an update. Do not replace an integration with a similarly named action without checking its input schema.
 
+## Deployment
+
+Check build logs, package resolution, registry access and worker compatibility. Confirm the environment and deployment head. GitHub sync does not prove an executable bundle exists. If builds complete but runs remain queued, inspect worker presence and queue capacity.
+
 ## A workflow cannot test or stage
 
 Validate every node first. HTTP requires a valid URL and supported request fields. Code nodes need the contract expected by the current workflow schema. Stage rejects a workflow version that has not passed its required test.

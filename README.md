@@ -17,13 +17,18 @@ Open `http://localhost:3000`.
 
 ```bash
 npm run lint
+npm run check:docs
 npx tsc --noEmit
 npm run build
 ```
 
 ## Product images and documentation
 
-The twelve homepage demos are preserved. Their PNG previews live in `public/images/product`; titles, guide links and concept labels are centralized in `lib/product-cards.ts`. Images are captures of the website demonstrations, not claims about released application features.
+The homepage keeps seven substantial demos and uses two concept illustrations for Policy and Workflow views. Three isolated interaction studies remain in the tour archive, not the homepage. Assets live in `public/images/product`; titles and guide links are centralized in `lib/product-cards.ts`. Concept illustrations are not screenshots of released features.
+
+Two illustrations were generated with the built-in image generation tool and optimized to WebP with Sharp. To re-optimize source PNGs named `policy-illustration.png` and `workflow-views-illustration.png`, run `node scripts/optimize-product-images.cjs SOURCE_DIRECTORY`.
+
+Runtime documentation linked from the app is defined in `lib/app-doc-guides.ts`. Re-audit a current app checkout with `node scripts/audit-app-docs.cjs PATH_TO_APP_CHECKOUT` and update `scripts/app-doc-links.json` from its output. `npm run check:docs` verifies the recorded destinations and section anchors. Audit again when app links change; the inventory is not a guarantee about future releases.
 
 The product docs include Studio, Source, the workflow model, typed functions, Git proposals, previews, runs, credentials, self-hosting, security, API/MCP, troubleshooting and capability status. Update capability status when a release is actually verified.
 

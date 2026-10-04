@@ -4,21 +4,17 @@ import { MorphingDialogBasicOne } from '@/app/docs/morphing-dialog/morphing-dial
 import XIcon from '@/components/website/icons/x';
 import GitHubIcon from '@/components/website/icons/github';
 import ThemeSwitch from '@/components/website/theme-switch';
-import { MorphingPopoverTextarea } from '@/app/docs/morphing-popover/morphing-popover-textarea';
 import { ChevronRight } from 'lucide-react';
 import { CardExampleLanding } from '@/components/website/card-example-landing';
 import { AnimatedGroupPreset } from '@/app/docs/animated-group/animated-group-preset';
 import { InViewImagesGrid } from '@/app/docs/in-view/in-view-images-grid';
 import { InfiniteSliderHoverSpeed } from '@/app/docs/infinite-slider/infinite-slider-hover-speed';
 import { Cursor1 } from '@/app/docs/cursor/cursor-1';
-import { SegmentedControl } from '@/app/docs/animated-background/segmented-control';
 import { FlowcordiaLogo } from '@/components/website/flowcordia-logo';
 import { SiteFooter } from '@/components/website/site-footer';
 import { TextLoopBasic } from './docs/text-loop/text-loop-basic';
-import { TextShimmerBasic } from './docs/text-shimmer/text-shimmer-basic';
-import { BorderTrailCard1 } from './docs/border-trail/border-trail-card-1';
 import { TextEffectSpeed } from './docs/text-effect/text-effect-speed';
-import { TextScrambleBasic } from './docs/text-scramble/text-scramble-basic';
+import { ProductImageFeature } from '@/components/website/product-image-feature';
 import { PRODUCT_CARDS } from '@/lib/product-cards';
 
 function Button({
@@ -204,36 +200,18 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding
-            preview={PRODUCT_CARDS[7]}
-            className='p-0 [&>div]:h-[860px] sm:[&>div]:h-[610px]'
-          >
-            <TextShimmerBasic />
-          </CardExampleLanding>
+          <ProductImageFeature
+            card={PRODUCT_CARDS[7]}
+            title='Make the boundaries visible.'
+            description='A policy concept brings identity, environment, secret access and review into one readable release story.'
+          />
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding
-            preview={PRODUCT_CARDS[8]}
-            className='px-8 md:px-20 [&>div]:h-52 [&>div]:justify-start'
-            hasReTrigger
-          >
-            <TextScrambleBasic />
-          </CardExampleLanding>
-        </section>
-        <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding preview={PRODUCT_CARDS[9]}>
-            <MorphingPopoverTextarea />
-          </CardExampleLanding>
-        </section>
-        <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding preview={PRODUCT_CARDS[10]}>
-            <BorderTrailCard1 />
-          </CardExampleLanding>
-        </section>
-        <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding preview={PRODUCT_CARDS[11]}>
-            <SegmentedControl />
-          </CardExampleLanding>
+          <ProductImageFeature
+            card={PRODUCT_CARDS[11]}
+            title='See the whole workflow, not just the tabs.'
+            description='Canvas, Source, Review and Run each have a clear role. Inspect the structure, understand the code, review the change and follow its execution.'
+          />
         </section>
         <div className='text-center text-sm text-zinc-500 dark:text-zinc-400'>
           <Link href='/docs'>Explore the complete workflow model</Link>
