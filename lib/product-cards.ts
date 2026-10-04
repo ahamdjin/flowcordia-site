@@ -1,0 +1,88 @@
+export const PRODUCT_CARDS = [
+  {
+    id: 'code-canvas',
+    title: 'Code and canvas',
+    image: '/images/product/code-canvas.png',
+    guide: '/docs/source',
+    status: 'Product concept',
+  },
+  {
+    id: 'review-deploy',
+    title: 'Review and deploy',
+    image: '/images/product/review-deploy.png',
+    guide: '/docs/git-proposals',
+    status: 'Product concept',
+  },
+  {
+    id: 'durable-execution',
+    title: 'Durable execution',
+    image: '/images/product/durable-execution.png',
+    guide: '/docs/runs',
+    status: 'Product concept',
+  },
+  {
+    id: 'infrastructure',
+    title: 'Infrastructure control',
+    image: '/images/product/infrastructure.png',
+    guide: '/docs/self-hosting',
+    status: 'Product concept',
+  },
+  {
+    id: 'debug-replay',
+    title: 'Debug and replay',
+    image: '/images/product/debug-replay.png',
+    guide: '/docs/runs',
+    status: 'Product concept',
+  },
+  {
+    id: 'change-impact',
+    title: 'Change intelligence',
+    image: '/images/product/change-impact.png',
+    guide: '/docs/capability-status',
+    status: 'Product concept',
+  },
+  {
+    id: 'function-workbench',
+    title: 'Function workbench',
+    image: '/images/product/function-workbench.png',
+    guide: '/docs/typed-functions',
+    status: 'Product concept',
+  },
+  {
+    id: 'policy-loom',
+    title: 'Policy as code',
+    image: '/images/product/policy-loom.png',
+    guide: '/docs/security',
+    status: 'Product concept',
+  },
+  {
+    id: 'proposal-status',
+    title: 'Proposal status',
+    image: '/images/product/proposal-status.png',
+    guide: '/docs/git-proposals',
+    status: 'Interaction study',
+  },
+  {
+    id: 'review-note',
+    title: 'Review notes',
+    image: '/images/product/review-note.png',
+    guide: '/docs/git-proposals',
+    status: 'Interaction study',
+  },
+  {
+    id: 'preview-build',
+    title: 'Preview builds',
+    image: '/images/product/preview-build.png',
+    guide: '/docs/preview-deployments',
+    status: 'Interaction study',
+  },
+  {
+    id: 'workflow-views',
+    title: 'Workflow views',
+    image: '/images/product/workflow-views.png',
+    guide: '/docs/studio',
+    status: 'Interaction study',
+  },
+] as const;
+
+export type ProductCard = (typeof PRODUCT_CARDS)[number];

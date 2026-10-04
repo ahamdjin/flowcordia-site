@@ -6,6 +6,24 @@ export const metadata = {
 
 # Capability status
 
+## Local QA snapshot: 4 October 2026
+
+This evidence covers a patched local installation, not every published release or GHCR image.
+
+| Check | Result |
+| :-- | :-- |
+| Navigation | 54 destinations; no FlowError screens; SSO remained unavailable |
+| UI controls | 23 checks passed, including Editor/Source switching |
+| REST API | 39 checks passed, including auth, conflicts, Source persistence and secret redaction |
+| Real Source execution | Simple saved TypeScript completed on the worker |
+| Native graph execution | Manual, Math, Text, Date, Store, Code, Condition, Loop, Wait, Wait Until and Return completed |
+| MCP | 24 tools discovered; three read-only calls passed |
+| Regression tests | 107 focused tests passed |
+
+Known gaps: an example workflow has invalid Code/HTTP configuration; Query's optional AI-title request returned 400; local SSO/cloud services are not available. Real provider OAuth/actions, full production promotion/rollback, concurrency recovery, first-owner onboarding, upgrades and security/load testing were not certified.
+
+The [Product tour](/docs/product-tour) labels all homepage images as concepts or interaction studies. General arbitrary TypeScript-to-canvas conversion, time travel, impact analysis and Policy Loom must not be inferred from those demonstrations.
+
 Flowcordia is under active development. This page separates the current foundations from inherited runtime capabilities and future product work.
 
 ## Flowcordia foundations

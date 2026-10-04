@@ -1,0 +1,47 @@
+export const metadata = {
+  title: 'API and MCP - Flowcordia',
+  description: 'Authenticate and inspect Flowcordia workflows using the REST API and MCP.',
+};
+
+# API and MCP
+
+The local beta exposes project-scoped REST APIs and an MCP tool surface. Use your own installation URL, organization, project and environment. Never put a token in a public repository or website.
+
+## Authentication
+
+Create a personal access token in your account settings. Send it as a Bearer token. Environment task keys and personal access tokens are not interchangeable: use the token type required by the endpoint.
+
+```bash
+export FLOWCORDIA_URL="http://localhost:3030"
+export FLOWCORDIA_TOKEN="your-personal-access-token"
+
+curl --fail-with-body \
+  -H "Authorization: Bearer $FLOWCORDIA_TOKEN" \
+  "$FLOWCORDIA_URL/api/v1/projects"
+```
+
+## Read a Studio workspace
+
+```bash
+curl --fail-with-body \
+  -H "Authorization: Bearer $FLOWCORDIA_TOKEN" \
+  "$FLOWCORDIA_URL/api/v1/flowcordia/orgs/ORG/projects/PROJECT/env/stg/studio"
+```
+
+Replace ORG and PROJECT with the route identifiers in your dashboard. The optional `_studioWorkspace` query selects a workspace. Inspect the response before constructing mutations; its document and version are the source of truth.
+
+## Write safely
+
+Studio commands use POST on the same endpoint, a JSON body, and an `intent`. Saving uses `expectedVersion` and the complete `document`; Source saving uses `source_save` and a `sourceProject`. Do not invent a document schema from this guide: use the current repository types and a freshly loaded workspace.
+
+A stale version returns 409. Reload and reconcile the change instead of retrying blindly. Invalid payloads return 400, missing or invalid authentication returns 401, and unsupported methods return 405.
+
+Variable, connection and piece metadata operations are routed through the Studio adapter's `activepieces_api` intent. The adapter path is a compatibility contract, not a standalone public service. UI permission boundaries still apply.
+
+## MCP
+
+The local QA pass discovered 24 tools and checked read-only `list_projects`, `list_orgs` and `whoami`. Configure the MCP connection using your installation's documented transport and a scoped token. Do not assume a hosted MCP URL exists for every self-hosted release.
+
+## Verification scope
+
+The local pass checked catalog reads, save/version conflicts, Source persistence, GitHub index refresh, credential and variable CRUD/redaction, and real worker execution. It did not certify every API route or real OAuth provider. See [Capability status](/docs/capability-status).

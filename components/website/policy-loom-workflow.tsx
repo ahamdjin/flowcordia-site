@@ -213,6 +213,7 @@ function PolicyLoomGraphic({
   const reduceMotion = useReducedMotion();
   const activeCount = phase === undefined ? 4 : Math.min(Math.max(phase, 0), 4);
   const tokenTop = 11 + activeCount * 16.7;
+  const Band = onSelect ? 'button' : 'div';
 
   return (
     <div className='relative h-full w-full overflow-hidden bg-[#fbfbfa] dark:bg-zinc-950'>
@@ -226,10 +227,10 @@ function PolicyLoomGraphic({
         }}
       />
 
-      <div className='absolute top-5 left-5 z-20 font-mono text-[8px] tracking-[0.1em] text-zinc-400 uppercase dark:text-zinc-500 sm:top-7 sm:left-8'>
+      <div className='absolute top-5 left-5 z-20 font-mono text-[8px] tracking-[0.1em] text-zinc-400 uppercase sm:top-7 sm:left-8 dark:text-zinc-500'>
         Policy loom · {scenario.release}
       </div>
-      <div className='absolute top-5 right-5 z-20 font-mono text-[8px] text-zinc-400 dark:text-zinc-500 sm:top-7 sm:right-8'>
+      <div className='absolute top-5 right-5 z-20 font-mono text-[8px] text-zinc-400 sm:top-7 sm:right-8 dark:text-zinc-500'>
         commit {scenario.commit}
       </div>
 
@@ -238,16 +239,16 @@ function PolicyLoomGraphic({
 
       {scenario.bands.map((band, index) => {
         const active = index < activeCount || phase === undefined;
-        const blocked = band.key === scenario.blockingBand && !resolved && active;
+        const blocked =
+          band.key === scenario.blockingBand && !resolved && active;
         const isSelected = selected === band.key;
         const leftBand = band.side === 'left';
 
         return (
-          <button
+          <Band
             key={band.key}
-            type='button'
+            {...(onSelect ? { type: 'button' as const } : {})}
             onClick={() => onSelect?.(band.key)}
-            disabled={!onSelect}
             className={`absolute z-10 h-[58px] text-left sm:h-[66px] ${
               leftBand ? 'left-[4%] w-[46%]' : 'right-[4%] w-[46%]'
             } ${onSelect ? 'cursor-pointer' : 'cursor-default'}`}
@@ -265,7 +266,9 @@ function PolicyLoomGraphic({
                 ease: 'easeOut',
               }}
               className={`relative flex h-full items-center border-y px-3 sm:px-5 ${
-                leftBand ? 'justify-start border-l' : 'justify-end border-r text-right'
+                leftBand
+                  ? 'justify-start border-l'
+                  : 'justify-end border-r text-right'
               } ${
                 blocked
                   ? 'border-[#D9A28D] bg-[#D9A28D]/12'
@@ -298,8 +301,13 @@ function PolicyLoomGraphic({
                 } ${blocked ? 'bg-[#D9A28D]' : 'bg-zinc-300 dark:bg-zinc-700'}`}
                 initial={false}
                 animate={{ scaleX: active ? 1 : 0.2 }}
-                style={{ transformOrigin: leftBand ? 'left center' : 'right center' }}
-                transition={{ duration: reduceMotion ? 0 : 0.55, delay: index * 0.08 }}
+                style={{
+                  transformOrigin: leftBand ? 'left center' : 'right center',
+                }}
+                transition={{
+                  duration: reduceMotion ? 0 : 0.55,
+                  delay: index * 0.08,
+                }}
               />
             </motion.div>
 
@@ -321,13 +329,13 @@ function PolicyLoomGraphic({
               }
               transition={{ duration: 1.2, repeat: blocked ? Infinity : 0 }}
             />
-          </button>
+          </Band>
         );
       })}
 
       <motion.div
         aria-label='Release policy evaluation position'
-        className='absolute left-1/2 z-30 w-[116px] -translate-x-1/2 rounded-full border border-zinc-300 bg-white px-3 py-2 text-center shadow-[0_8px_26px_rgba(9,9,11,0.08)] dark:border-zinc-700 dark:bg-zinc-900 sm:w-[138px]'
+        className='absolute left-1/2 z-30 w-[116px] -translate-x-1/2 rounded-full border border-zinc-300 bg-white px-3 py-2 text-center shadow-[0_8px_26px_rgba(9,9,11,0.08)] sm:w-[138px] dark:border-zinc-700 dark:bg-zinc-900'
         initial={false}
         animate={{ top: `${tokenTop}%` }}
         transition={{
@@ -382,7 +390,10 @@ function ClosedPreview() {
 
     const advance = (next: number) => {
       setPhase(next);
-      timer = setTimeout(() => advance(next >= 6 ? 0 : next + 1), durations[next]);
+      timer = setTimeout(
+        () => advance(next >= 6 ? 0 : next + 1),
+        durations[next]
+      );
     };
 
     advance(0);
@@ -401,7 +412,7 @@ function ClosedPreview() {
 
   return (
     <div ref={rootRef} className='flex min-h-0 flex-1 flex-col'>
-      <div className='relative min-h-[420px] flex-1 border-y border-zinc-200 dark:border-zinc-800 sm:min-h-[360px]'>
+      <div className='relative min-h-[420px] flex-1 border-y border-zinc-200 sm:min-h-[360px] dark:border-zinc-800'>
         <PolicyLoomGraphic
           scenario={SCENARIOS.production}
           resolved={resolved}
@@ -454,7 +465,7 @@ function PolicyInspector() {
   return (
     <div>
       <div className='border-y border-zinc-200 dark:border-zinc-800'>
-        <div className='grid border-b border-zinc-200 dark:border-zinc-800 sm:grid-cols-3'>
+        <div className='grid border-b border-zinc-200 sm:grid-cols-3 dark:border-zinc-800'>
           {(Object.keys(SCENARIOS) as PolicyKey[]).map((key) => {
             const item = SCENARIOS[key];
             const active = key === policyKey;
@@ -471,12 +482,16 @@ function PolicyInspector() {
               >
                 <span
                   className={`block text-[8px] font-medium tracking-[0.1em] uppercase ${
-                    active ? 'text-zinc-400' : 'text-zinc-400 dark:text-zinc-500'
+                    active
+                      ? 'text-zinc-400'
+                      : 'text-zinc-400 dark:text-zinc-500'
                   }`}
                 >
                   {item.eyebrow}
                 </span>
-                <span className='mt-1.5 block text-xs font-medium'>{item.title}</span>
+                <span className='mt-1.5 block text-xs font-medium'>
+                  {item.title}
+                </span>
               </button>
             );
           })}
@@ -571,11 +586,12 @@ export function PolicyLoomWorkflow() {
             <div className='text-[10px] font-medium tracking-[0.09em] text-zinc-400 uppercase dark:text-zinc-500'>
               08 · Policy as code
             </div>
-            <MorphingDialogTitle className='mt-3 text-2xl font-medium tracking-[-0.035em] text-zinc-950 dark:text-zinc-50 sm:text-3xl'>
+            <MorphingDialogTitle className='mt-3 text-2xl font-medium tracking-[-0.035em] text-zinc-950 sm:text-3xl dark:text-zinc-50'>
               Every workflow carries its policy with it.
             </MorphingDialogTitle>
             <MorphingDialogSubtitle className='mt-3 max-w-lg text-sm leading-6 text-zinc-500 dark:text-zinc-400'>
-              Identity, environment, secret scope, and approvals are evaluated together before execution begins.
+              Identity, environment, secret scope, and approvals are evaluated
+              together before execution begins.
             </MorphingDialogSubtitle>
           </div>
           <div className='hidden shrink-0 pt-1 font-mono text-[10px] text-zinc-400 sm:block dark:text-zinc-500'>
@@ -590,15 +606,16 @@ export function PolicyLoomWorkflow() {
           style={{ borderRadius: '24px' }}
           className='pointer-events-auto relative flex max-h-[calc(100vh-32px)] w-[calc(100vw-32px)] max-w-[1040px] flex-col overflow-y-auto border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-950'
         >
-          <div className='px-7 pt-7 pb-6 pr-16 sm:px-9 sm:pt-9 sm:pb-8'>
+          <div className='px-7 pt-7 pr-16 pb-6 sm:px-9 sm:pt-9 sm:pb-8'>
             <div className='text-[10px] font-medium tracking-[0.09em] text-zinc-400 uppercase dark:text-zinc-500'>
               Policy inspector
             </div>
-            <MorphingDialogTitle className='mt-3 max-w-3xl text-2xl font-medium tracking-[-0.035em] text-zinc-950 dark:text-zinc-50 sm:text-3xl'>
+            <MorphingDialogTitle className='mt-3 max-w-3xl text-2xl font-medium tracking-[-0.035em] text-zinc-950 sm:text-3xl dark:text-zinc-50'>
               Trace the rule that allowed—or stopped—the run.
             </MorphingDialogTitle>
             <MorphingDialogSubtitle className='mt-3 max-w-2xl text-sm leading-6 text-zinc-500 dark:text-zinc-400'>
-              Select a policy band, inspect its exact source rule, and satisfy the missing requirement without bypassing production governance.
+              Select a policy band, inspect its exact source rule, and satisfy
+              the missing requirement without bypassing production governance.
             </MorphingDialogSubtitle>
           </div>
 

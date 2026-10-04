@@ -1,20 +1,10 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { NAVIGATION } from './app/docs/navigation';
 
-const flowcordiaDocs = new Set([
-  '/docs',
-  '/docs/getting-started',
-  '/docs/studio',
-  '/docs/workflow-model',
-  '/docs/source',
-  '/docs/typed-functions',
-  '/docs/git-proposals',
-  '/docs/preview-deployments',
-  '/docs/runs',
-  '/docs/security',
-  '/docs/self-hosting',
-  '/docs/capability-status',
-]);
+const flowcordiaDocs = new Set(
+  NAVIGATION.flatMap((group) => group.children.map((item) => item.href))
+);
 
 export function middleware(request: NextRequest) {
   if (flowcordiaDocs.has(request.nextUrl.pathname)) {

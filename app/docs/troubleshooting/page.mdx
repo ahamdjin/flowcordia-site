@@ -1,0 +1,36 @@
+export const metadata = {
+  title: 'Troubleshooting - Flowcordia',
+  description: 'Diagnose workflow configuration, Source, worker and self-hosted page failures.',
+};
+
+# Troubleshooting
+
+Start with the specific failing operation, its HTTP status and server or worker logs. A FlowError screen is an error boundary, not a diagnosis.
+
+## A node says its piece is unavailable
+
+Check that the integration package and the workflow's referenced version are installed in the local registry. Reload metadata after an update. Do not replace an integration with a similarly named action without checking its input schema.
+
+## A workflow cannot test or stage
+
+Validate every node first. HTTP requires a valid URL and supported request fields. Code nodes need the contract expected by the current workflow schema. Stage rejects a workflow version that has not passed its required test.
+
+The local example vertical-slice workflow was found to contain missing Code schemas and invalid HTTP configuration. Treat it as an example requiring repair, not a ready-to-run template.
+
+## Source is blank or switching stalls
+
+Check the browser console and the workspace request. Source should load its Sandpack adapter client-side; Editor and Source should preserve their mounted state during switching. Reload only after saving or copying unsaved edits. Report a reproducible route and version without secret values.
+
+## Development is not connected
+
+The visual editor opening does not establish a worker connection. Start the documented development worker for the selected project/environment, or use the supported test deployment path. The first execution can require bundling and dependency installation.
+
+## Query works but its AI title fails
+
+AI title generation is optional. A missing or unavailable AI configuration must not be mistaken for a failed SQL query. The QA pass observed a 400 from this optional request; manual titles remain the fallback.
+
+## SSO or cloud pages are unavailable
+
+SSO returned 404 in the tested local setup. Billing, usage and private-connection pages redirected. Do not assume these cloud services are included in a self-hosted installation.
+
+When opening an issue, include the app commit, installation method, failing route, sanitized logs and minimal reproduction. Never paste tokens, passwords or private keys.

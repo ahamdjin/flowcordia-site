@@ -38,3 +38,7 @@ When identity cannot be proven across proposal, deployment, and run, execution s
 The connected identity makes review, rollback, audit, debugging, and collaboration possible without forcing visual builders and developers into separate systems.
 
 Next: [Typed functions](/docs/typed-functions) and [Git proposals](/docs/git-proposals).
+
+## Versioned writes
+
+Workspace mutations carry the loaded version. A stale save must produce a conflict rather than overwriting another user's edits. Save/version conflict handling was checked through the REST API; simultaneous multi-user recovery was not. See [API and MCP](/docs/api).

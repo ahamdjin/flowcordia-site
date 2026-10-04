@@ -93,13 +93,38 @@ const CHECKPOINT = [
 
 const CLOSED_PHASES = [
   { event: 0, mode: 'trace', title: 'Run started', detail: 'commit 7f91b2d' },
-  { event: 1, mode: 'trace', title: 'Build checkpointed', detail: 'build_1842' },
+  {
+    event: 1,
+    mode: 'trace',
+    title: 'Build checkpointed',
+    detail: 'build_1842',
+  },
   { event: 2, mode: 'trace', title: 'Tests passed', detail: '42 checks' },
   { event: 3, mode: 'trace', title: 'Approval preserved', detail: 'approved' },
-  { event: 4, mode: 'failure', title: 'Production deploy failed', detail: '503 · attempt 1' },
-  { event: 4, mode: 'state', title: 'Checkpoint restored', detail: 'completed work preserved' },
-  { event: 4, mode: 'source', title: 'Exact source revealed', detail: 'release.workflow.ts' },
-  { event: 6, mode: 'recovered', title: 'Recovered without restarting', detail: 'run_8fd2 · 2 attempts' },
+  {
+    event: 4,
+    mode: 'failure',
+    title: 'Production deploy failed',
+    detail: '503 · attempt 1',
+  },
+  {
+    event: 4,
+    mode: 'state',
+    title: 'Checkpoint restored',
+    detail: 'completed work preserved',
+  },
+  {
+    event: 4,
+    mode: 'source',
+    title: 'Exact source revealed',
+    detail: 'release.workflow.ts',
+  },
+  {
+    event: 6,
+    mode: 'recovered',
+    title: 'Recovered without restarting',
+    detail: 'run_8fd2 · 2 attempts',
+  },
 ] as const;
 
 type TraceStatus = (typeof TRACE)[number]['status'];
@@ -125,10 +150,7 @@ function useClosedSequence(play: boolean) {
     );
 
     timers.push(
-      window.setTimeout(
-        () => setSequenceKey((current) => current + 1),
-        9000
-      )
+      window.setTimeout(() => setSequenceKey((current) => current + 1), 9000)
     );
 
     return () => timers.forEach((timer) => window.clearTimeout(timer));
@@ -200,7 +222,9 @@ function TraceRail({
       <div className='absolute top-2.5 right-8 left-8 h-px bg-zinc-200 sm:right-14 sm:left-14 dark:bg-zinc-800' />
       <motion.div
         className='absolute top-2.5 left-8 h-px bg-zinc-900 sm:left-14 dark:bg-zinc-100'
-        animate={{ width: `calc((100% - ${interactive ? '112px' : '112px'}) * ${progress / 100})` }}
+        animate={{
+          width: `calc((100% - ${interactive ? '112px' : '112px'}) * ${progress / 100})`,
+        }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
       />
       <div className='relative grid grid-cols-7'>
@@ -209,7 +233,11 @@ function TraceRail({
           const complete = index <= activeIndex;
           const content = (
             <>
-              <TraceDot status={event.status} active={active} complete={complete} />
+              <TraceDot
+                status={event.status}
+                active={active}
+                complete={complete}
+              />
               <span
                 className={`mt-3 hidden text-[9px] font-medium tracking-[0.04em] uppercase transition-colors sm:block ${
                   active
@@ -229,14 +257,17 @@ function TraceRail({
               key={event.label}
               type='button'
               onClick={() => onSelect?.(index)}
-              className='flex min-w-0 flex-col items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400/60'
+              className='flex min-w-0 flex-col items-center focus-visible:ring-2 focus-visible:ring-zinc-400/60 focus-visible:outline-none'
               aria-label={`Inspect ${event.label} at ${event.time}`}
               aria-pressed={active}
             >
               {content}
             </button>
           ) : (
-            <div key={event.label} className='flex min-w-0 flex-col items-center'>
+            <div
+              key={event.label}
+              className='flex min-w-0 flex-col items-center'
+            >
               {content}
             </div>
           );
@@ -419,7 +450,9 @@ function EventDetail({ index }: { index: number }) {
         </p>
 
         <div className='mx-auto mt-6 inline-flex items-center gap-3 rounded-full border border-zinc-200 bg-white px-4 py-2 font-mono text-[10px] text-zinc-600 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300'>
-          <span className={`h-1.5 w-1.5 rounded-full ${failed ? 'bg-red-400' : 'bg-[#D9A28D]'}`} />
+          <span
+            className={`h-1.5 w-1.5 rounded-full ${failed ? 'bg-red-400' : 'bg-[#D9A28D]'}`}
+          />
           {event.output}
         </div>
 
@@ -427,7 +460,9 @@ function EventDetail({ index }: { index: number }) {
           <div className='mx-auto mt-6 grid max-w-sm grid-cols-2 gap-2 text-left font-mono text-[9px]'>
             <div className='rounded-xl border border-red-400/20 bg-red-400/5 px-4 py-3'>
               <div className='text-red-400'>attempt 1</div>
-              <div className='mt-1 text-zinc-500 dark:text-zinc-400'>503 failed</div>
+              <div className='mt-1 text-zinc-500 dark:text-zinc-400'>
+                503 failed
+              </div>
             </div>
             <div className='rounded-xl border border-zinc-200 bg-white px-4 py-3 dark:border-zinc-800 dark:bg-zinc-950'>
               <div className='text-zinc-900 dark:text-zinc-100'>attempt 2</div>
@@ -474,7 +509,7 @@ function SourceLayer({ index }: { index: number }) {
         release.workflow.ts
       </div>
       <div className='px-4 py-4 font-mono text-[9px] leading-6 text-zinc-300'>
-        <div className='text-zinc-600'>// selected source</div>
+        <div className='text-zinc-600'>{'// selected source'}</div>
         <motion.div
           key={event.source}
           initial={{ opacity: 0, x: 8 }}
@@ -490,10 +525,7 @@ function SourceLayer({ index }: { index: number }) {
 
 function RunDebugger() {
   const [index, setIndex] = useState(4);
-  const progress = useMemo(
-    () => (index / (TRACE.length - 1)) * 100,
-    [index]
-  );
+  const progress = useMemo(() => (index / (TRACE.length - 1)) * 100, [index]);
 
   return (
     <div className='border-t border-zinc-200 dark:border-zinc-800'>
@@ -569,11 +601,12 @@ export function TimeTravelDebuggerWorkflow() {
             <div className='text-[10px] font-medium tracking-[0.09em] text-zinc-400 uppercase dark:text-zinc-500'>
               05 · Debug and replay
             </div>
-            <MorphingDialogTitle className='mt-3 text-2xl font-medium tracking-[-0.035em] text-zinc-950 dark:text-zinc-50 sm:text-3xl'>
+            <MorphingDialogTitle className='mt-3 text-2xl font-medium tracking-[-0.035em] text-zinc-950 sm:text-3xl dark:text-zinc-50'>
               Trace every outcome back to source.
             </MorphingDialogTitle>
             <MorphingDialogSubtitle className='mt-3 max-w-lg text-sm leading-6 text-zinc-500 dark:text-zinc-400'>
-              Move through a run moment by moment—from failure, to preserved state, to the exact reviewed line that governed it.
+              Move through a run moment by moment—from failure, to preserved
+              state, to the exact reviewed line that governed it.
             </MorphingDialogSubtitle>
           </div>
           <div className='hidden shrink-0 pt-1 font-mono text-[10px] text-zinc-400 sm:block dark:text-zinc-500'>
@@ -588,15 +621,16 @@ export function TimeTravelDebuggerWorkflow() {
           style={{ borderRadius: '24px' }}
           className='pointer-events-auto relative flex max-h-[calc(100vh-32px)] w-[calc(100vw-32px)] max-w-[1040px] flex-col overflow-y-auto border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-950'
         >
-          <div className='px-7 pt-7 pb-6 pr-16 sm:px-9 sm:pt-9 sm:pb-8'>
+          <div className='px-7 pt-7 pr-16 pb-6 sm:px-9 sm:pt-9 sm:pb-8'>
             <div className='text-[10px] font-medium tracking-[0.09em] text-zinc-400 uppercase dark:text-zinc-500'>
               Time-travel debugger
             </div>
-            <MorphingDialogTitle className='mt-3 max-w-2xl text-2xl font-medium tracking-[-0.035em] text-zinc-950 dark:text-zinc-50 sm:text-3xl'>
+            <MorphingDialogTitle className='mt-3 max-w-2xl text-2xl font-medium tracking-[-0.035em] text-zinc-950 sm:text-3xl dark:text-zinc-50'>
               Every run is replayable evidence.
             </MorphingDialogTitle>
             <MorphingDialogSubtitle className='mt-3 max-w-2xl text-sm leading-6 text-zinc-500 dark:text-zinc-400'>
-              Scrub the execution timeline. The canvas, checkpoint, attempts, output, and matching source line all return to the same moment.
+              Scrub the execution timeline. The canvas, checkpoint, attempts,
+              output, and matching source line all return to the same moment.
             </MorphingDialogSubtitle>
           </div>
 

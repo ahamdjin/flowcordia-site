@@ -19,6 +19,7 @@ import { TextShimmerBasic } from './docs/text-shimmer/text-shimmer-basic';
 import { BorderTrailCard1 } from './docs/border-trail/border-trail-card-1';
 import { TextEffectSpeed } from './docs/text-effect/text-effect-speed';
 import { TextScrambleBasic } from './docs/text-scramble/text-scramble-basic';
+import { PRODUCT_CARDS } from '@/lib/product-cards';
 
 function Button({
   children,
@@ -53,7 +54,7 @@ function Header() {
             Flowcordia
           </div>
           <span className='mb-4 ml-0 rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-50 select-none'>
-            alpha
+            beta
           </span>
         </a>
 
@@ -66,7 +67,7 @@ function Header() {
               Product
             </Link>
             <a
-              href='https://github.com/ahamdjin/Flowcordia/issues'
+              href='https://github.com/flowcordia/flowcordia/issues'
               target='_blank'
               rel='noopener noreferrer'
               className='hidden items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 md:inline-flex dark:text-zinc-300 dark:hover:text-white'
@@ -83,7 +84,7 @@ function Header() {
           <div className='hidden h-8 w-[0.5px] bg-zinc-200 sm:flex dark:bg-zinc-800' />
           <nav className='flex items-center space-x-2'>
             <a
-              href='https://github.com/ahamdjin/Flowcordia/discussions'
+              href='https://github.com/flowcordia/flowcordia/discussions'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Flowcordia community discussions'
@@ -92,7 +93,7 @@ function Header() {
               <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
             </a>
             <a
-              href='https://github.com/ahamdjin/Flowcordia'
+              href='https://github.com/flowcordia/flowcordia'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Flowcordia on GitHub'
@@ -116,11 +117,12 @@ export default function Motion() {
         <section className='flex h-full flex-col items-center justify-center pt-20'>
           <div className='flex w-full max-w-lg flex-col items-center justify-center text-center'>
             <h1 className='relative mb-4 text-4xl font-medium text-zinc-950 dark:text-zinc-50'>
-              Build workflows visually. Govern them like code.
+              Flowcordia
             </h1>
             <p className='text-center text-zinc-600 dark:text-zinc-200'>
-              A Git-native workflow platform connecting a visual studio, typed
-              functions, reviewed changes, and exact-version execution.
+              Build workflows visually. Extend them in TypeScript. An
+              open-source, Git-connected workspace for building, testing, and
+              operating automations.
             </p>
           </div>
           <div className='flex items-center space-x-4 py-6'>
@@ -131,7 +133,7 @@ export default function Motion() {
               </Button>
             </Link>
             <a
-              href='https://github.com/ahamdjin/Flowcordia'
+              href='https://github.com/flowcordia/flowcordia'
               target='_blank'
               rel='noopener noreferrer'
             >
@@ -146,47 +148,72 @@ export default function Motion() {
           </span>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='p-0 [&>div]:h-[720px] sm:[&>div]:h-[520px]'>
+          <CardExampleLanding
+            preview={PRODUCT_CARDS[0]}
+            className='p-0 [&>div]:h-[720px] sm:[&>div]:h-[520px]'
+          >
             <MorphingDialogBasicOne />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[560px]'>
+          <CardExampleLanding
+            preview={PRODUCT_CARDS[1]}
+            className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[560px]'
+          >
             <AnimatedGroupPreset />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[560px]'>
+          <CardExampleLanding
+            preview={PRODUCT_CARDS[2]}
+            className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[560px]'
+          >
             <TextEffectSpeed />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='p-0 [&>div]:h-[860px] sm:[&>div]:h-[590px]'>
+          <CardExampleLanding
+            preview={PRODUCT_CARDS[3]}
+            className='p-0 [&>div]:h-[860px] sm:[&>div]:h-[590px]'
+          >
             <InViewImagesGrid />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[590px]'>
+          <CardExampleLanding
+            preview={PRODUCT_CARDS[4]}
+            className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[590px]'
+          >
             <InfiniteSliderHoverSpeed />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='p-0 [&>div]:h-[900px] sm:[&>div]:h-[620px]'>
+          <CardExampleLanding
+            preview={PRODUCT_CARDS[5]}
+            className='p-0 [&>div]:h-[900px] sm:[&>div]:h-[620px]'
+          >
             <Cursor1 />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='px-8 md:px-20 [&>div]:h-52 [&>div]:justify-start'>
+          <CardExampleLanding
+            preview={PRODUCT_CARDS[6]}
+            className='p-0 [&>div]:h-[820px] sm:[&>div]:h-[590px]'
+          >
             <TextLoopBasic />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='px-8 md:px-20 [&>div]:h-52 [&>div]:justify-start'>
+          <CardExampleLanding
+            preview={PRODUCT_CARDS[7]}
+            className='p-0 [&>div]:h-[860px] sm:[&>div]:h-[610px]'
+          >
             <TextShimmerBasic />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
           <CardExampleLanding
+            preview={PRODUCT_CARDS[8]}
             className='px-8 md:px-20 [&>div]:h-52 [&>div]:justify-start'
             hasReTrigger
           >
@@ -194,17 +221,17 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding>
+          <CardExampleLanding preview={PRODUCT_CARDS[9]}>
             <MorphingPopoverTextarea />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding>
+          <CardExampleLanding preview={PRODUCT_CARDS[10]}>
             <BorderTrailCard1 />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding>
+          <CardExampleLanding preview={PRODUCT_CARDS[11]}>
             <SegmentedControl />
           </CardExampleLanding>
         </section>

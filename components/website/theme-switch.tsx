@@ -1,6 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,7 +11,9 @@ import {
 import { MoonIcon, SunIcon } from 'lucide-react';
 
 export default function ThemeSwitch() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   return (
     <DropdownMenu>
@@ -20,7 +23,7 @@ export default function ThemeSwitch() {
           aria-label='Toggle theme'
           type='button'
         >
-          {theme === 'light' ? (
+          {mounted && resolvedTheme === 'light' ? (
             <SunIcon className='h-4 w-4' />
           ) : (
             <MoonIcon className='h-4 w-4' />
