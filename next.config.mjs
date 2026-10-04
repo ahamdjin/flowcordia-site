@@ -11,7 +11,7 @@ const nextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm, [remarkCodeHike, { theme: 'css-variables' }]],
+    remarkPlugins: [remarkGfm, [remarkCodeHike, { theme: 'github-dark' }]],
   },
 });
 

@@ -41,7 +41,7 @@ const FOOTER_GROUPS: FooterGroup[] = [
     links: [
       {
         label: 'Application source',
-        href: 'https://github.com/ahamdjin/Flowcordia',
+        href: 'https://github.com/flowcordia/flowcordia',
         external: true,
       },
       {
@@ -51,7 +51,7 @@ const FOOTER_GROUPS: FooterGroup[] = [
       },
       {
         label: 'Application licence',
-        href: 'https://github.com/ahamdjin/Flowcordia/blob/main/LICENSE',
+        href: 'https://github.com/flowcordia/flowcordia/blob/main/LICENSE',
         external: true,
       },
       {
@@ -66,17 +66,17 @@ const FOOTER_GROUPS: FooterGroup[] = [
     links: [
       {
         label: 'Discussions',
-        href: 'https://github.com/ahamdjin/Flowcordia/discussions',
+        href: 'https://github.com/flowcordia/flowcordia/discussions',
         external: true,
       },
       {
         label: 'Roadmap',
-        href: 'https://github.com/ahamdjin/Flowcordia/issues',
+        href: 'https://github.com/flowcordia/flowcordia/issues',
         external: true,
       },
       {
         label: 'Report an issue',
-        href: 'https://github.com/ahamdjin/Flowcordia/issues/new',
+        href: 'https://github.com/flowcordia/flowcordia/issues/new',
         external: true,
       },
       { label: 'Current status', href: '/docs/capability-status' },
@@ -87,12 +87,12 @@ const FOOTER_GROUPS: FooterGroup[] = [
     links: [
       {
         label: 'GitHub',
-        href: 'https://github.com/ahamdjin/Flowcordia',
+        href: 'https://github.com/flowcordia/flowcordia',
         external: true,
       },
       {
         label: 'Community',
-        href: 'https://github.com/ahamdjin/Flowcordia/discussions',
+        href: 'https://github.com/flowcordia/flowcordia/discussions',
         external: true,
       },
     ],
@@ -164,7 +164,7 @@ export function SiteFooter() {
 
             <div className='flex items-center gap-2'>
               <a
-                href='https://github.com/ahamdjin/Flowcordia/discussions'
+                href='https://github.com/flowcordia/flowcordia/discussions'
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label='Flowcordia community discussions'
@@ -173,7 +173,7 @@ export function SiteFooter() {
                 <MessagesSquare className='h-4 w-4' />
               </a>
               <a
-                href='https://github.com/ahamdjin/Flowcordia'
+                href='https://github.com/flowcordia/flowcordia'
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label='Flowcordia on GitHub'

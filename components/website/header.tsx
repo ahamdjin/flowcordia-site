@@ -32,7 +32,7 @@ export function Header() {
             Flowcordia
           </div>
           <span className='mb-4 ml-0 rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] leading-none font-medium text-zinc-50 select-none'>
-            alpha
+            beta
           </span>
         </Link>
         <div className='flex items-center space-x-6'>
@@ -44,7 +44,7 @@ export function Header() {
               Product
             </Link>
             <a
-              href='https://github.com/ahamdjin/Flowcordia/issues'
+              href='https://github.com/flowcordia/flowcordia/issues'
               target='_blank'
               rel='noopener noreferrer'
               className='inline-flex items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
@@ -61,7 +61,7 @@ export function Header() {
           <div className='hidden h-8 w-[0.5px] bg-zinc-200 sm:flex dark:bg-zinc-800' />
           <nav className='flex items-center space-x-2'>
             <a
-              href='https://github.com/ahamdjin/Flowcordia/discussions'
+              href='https://github.com/flowcordia/flowcordia/discussions'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Flowcordia community discussions'
@@ -70,7 +70,7 @@ export function Header() {
               <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
             </a>
             <a
-              href='https://github.com/ahamdjin/Flowcordia'
+              href='https://github.com/flowcordia/flowcordia'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Flowcordia on GitHub'

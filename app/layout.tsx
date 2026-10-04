@@ -1,4 +1,5 @@
 import './globals.css';
+import '@code-hike/mdx/dist/index.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/website/theme-provider';
@@ -9,9 +10,29 @@ const inter = Inter({ subsets: ['latin'] });
 const geistMono = GeistMono;
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://flowcordia.com'),
   title: 'Flowcordia - Build visually. Govern as code.',
   description:
     'Flowcordia is an open-source, Git-native workflow platform connecting a visual studio, typed functions, reviewed changes, and exact-version execution.',
+  openGraph: {
+    title: 'Flowcordia - Visual workflows and TypeScript',
+    description:
+      'Explore the open-source Flowcordia beta, its workflow Studio and Source editor.',
+    url: 'https://flowcordia.com',
+    siteName: 'Flowcordia',
+    type: 'website',
+    images: [
+      {
+        url: '/images/product/code-canvas.png',
+        alt: 'Flowcordia code and canvas product demonstration',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Flowcordia - Visual workflows and TypeScript',
+    images: ['/images/product/code-canvas.png'],
+  },
   icons: {
     icon: [
       {

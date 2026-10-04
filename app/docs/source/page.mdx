@@ -38,3 +38,9 @@ A proposal can include the canonical workflow document, generated task source, a
 Flowcordia does not force arbitrary code into visual nodes. When a construct cannot be represented safely, the source remains authoritative and the visual surface communicates that boundary.
 
 Next: [Typed functions](/docs/typed-functions).
+
+## Current Source editor
+
+Source uses Sandpack for files, active-file state and TypeScript editing. Browser preview execution is disabled: workflow tests run through the server worker, not a CodeSandbox preview. Dependency declarations must be available during the worker build; installing a browser UI library does not install a runtime dependency automatically.
+
+The local pass saved Source, reloaded it, switched Editor and Source repeatedly, and executed a simple saved TypeScript workflow through a real worker. It did not prove every npm package or arbitrary TypeScript-to-canvas conversion. Preserve unsupported logic as explicit code rather than expecting automatic reverse translation.

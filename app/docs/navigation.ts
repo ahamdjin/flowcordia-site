@@ -22,6 +22,7 @@ export const NAVIGATION: NavigationGroup[] = [
         name: 'Getting started',
         href: '/docs/getting-started',
       },
+      { name: 'Product tour', href: '/docs/product-tour', isNew: true },
     ],
   },
   {
@@ -62,6 +63,11 @@ export const NAVIGATION: NavigationGroup[] = [
     name: 'Operate',
     children: [
       {
+        name: 'Variables and credentials',
+        href: '/docs/credentials',
+        isNew: true,
+      },
+      {
         name: 'Runs',
         href: '/docs/runs',
       },
@@ -78,6 +84,9 @@ export const NAVIGATION: NavigationGroup[] = [
   {
     name: 'Reference',
     children: [
+      { name: 'Runtime guides', href: '/docs/runtime', isNew: true },
+      { name: 'API and MCP', href: '/docs/api', isNew: true },
+      { name: 'Troubleshooting', href: '/docs/troubleshooting', isNew: true },
       {
         name: 'Capability status',
         href: '/docs/capability-status',

@@ -46,3 +46,7 @@ Runtime replay and retry capabilities must preserve idempotency and version boun
 Flowcordia’s control plane can connect workflow identity to runtime events, while detailed execution logs, queues, machine selection, and durable scheduling continue through the underlying runtime.
 
 Next: [Security boundaries](/docs/security).
+
+## What was checked
+
+The local worker returned Source test input/results and a native graph's 19 successful trace entries. Run API reads also passed. Real cancellation, retry failures and scheduled/webhook dispatch still need separate checks. The homepage time-travel demonstration is not evidence that full breakpoint replay exists in the beta.

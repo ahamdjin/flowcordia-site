@@ -47,3 +47,11 @@ A self-hosted release should include migrations, compatibility notes, health che
 Public self-hosting documentation will expand when installation, upgrades, backups, reconciliation, and failure recovery can be described as one tested path.
 
 See [Capability status](/docs/capability-status) for the current product boundary.
+
+## Installation source of truth
+
+Use the version-specific [application README](https://github.com/flowcordia/flowcordia#readme) and compose instructions from the same commit or release. Do not mix an old database schema with a new app image without the documented migrations. Keep database, worker, registry and storage services available; a healthy web page alone is not a healthy execution platform.
+
+Back up persistent data before upgrading. Set the external application URL, authentication settings and integration callback URLs for your actual hostname. Only use localhost URLs for local testing. Configure email delivery if you expect magic links to arrive in an inbox; a development log is not an email provider.
+
+The local QA used an existing database and patched local bundles. It did not validate the published container image, a clean installation, restore or upgrade process.

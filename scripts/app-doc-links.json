@@ -1,0 +1,444 @@
+{
+  "source": "Flowcordia dashboard source",
+  "paths": [
+    "",
+    "ai-chat/overview",
+    "ai-chat/sessions",
+    "ai/prompts",
+    "bulk-actions",
+    "cli-deploy",
+    "cli-dev",
+    "deployment/dev-branches",
+    "deployment/overview",
+    "deployment/preview-branches",
+    "errors-retrying",
+    "frontend/overview",
+    "github-actions",
+    "github-integration",
+    "how-to-reduce-your-spend",
+    "idempotency",
+    "limits",
+    "machines",
+    "management/overview",
+    "management/tasks/batch-trigger",
+    "migrating-from-v3",
+    "private-networking/aws-console-setup",
+    "private-networking/overview",
+    "prompt-management",
+    "queue-concurrency",
+    "run-tests",
+    "runs",
+    "runs-and-attempts",
+    "runs/metadata",
+    "tasks/overview",
+    "triggering",
+    "troubleshooting",
+    "troubleshooting-alerts",
+    "upgrade-to-v4",
+    "v3/agents",
+    "v3/apikeys",
+    "v3/deploy-environment-variables",
+    "v3/tags",
+    "v3/tasks-overview",
+    "v3/tasks-scheduled",
+    "v3/triggering",
+    "v3/troubleshooting",
+    "v3/troubleshooting-alerts",
+    "vercel-integration",
+    "wait",
+    "wait-for-token"
+  ],
+  "records": [
+    {
+      "path": "how-to-reduce-your-spend",
+      "anchor": "",
+      "file": "apps/webapp/app/components/billing/BillingAlertsSection.tsx"
+    },
+    {
+      "path": "v3/tasks-scheduled",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "v3/tasks-scheduled",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "triggering",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "ai-chat/sessions",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "deployment/overview",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "troubleshooting",
+      "anchor": "deployment",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "troubleshooting-alerts",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "troubleshooting-alerts",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "wait-for-token",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "upgrade-to-v4",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "upgrade-to-v4",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "deployment/overview",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "troubleshooting",
+      "anchor": "deployment",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "github-integration",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "deployment/overview",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "github-actions",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "prompt-management",
+      "anchor": "",
+      "file": "apps/webapp/app/components/BlankStatePanels.tsx"
+    },
+    {
+      "path": "cli-dev",
+      "anchor": "",
+      "file": "apps/webapp/app/components/DevPresence.tsx"
+    },
+    {
+      "path": "vercel-integration",
+      "anchor": "atomic-deployments",
+      "file": "apps/webapp/app/components/integrations/VercelBuildSettings.tsx"
+    },
+    {
+      "path": "vercel-integration",
+      "anchor": "supabase-and-neon-database-branching",
+      "file": "apps/webapp/app/components/integrations/VercelOnboardingModal.tsx"
+    },
+    {
+      "path": "machines",
+      "anchor": "machine-configurations",
+      "file": "apps/webapp/app/components/MachineTooltipInfo.tsx"
+    },
+    {
+      "path": "upgrade-to-v4",
+      "anchor": "",
+      "file": "apps/webapp/app/components/navigation/EnvironmentSelector.tsx"
+    },
+    {
+      "path": "",
+      "anchor": "",
+      "file": "apps/webapp/app/components/navigation/HelpAndFeedbackPopover.tsx"
+    },
+    {
+      "path": "migrating-from-v3",
+      "anchor": "",
+      "file": "apps/webapp/app/components/navigation/SideMenu.tsx"
+    },
+    {
+      "path": "limits",
+      "anchor": "task-payloads-and-outputs",
+      "file": "apps/webapp/app/components/runs/v3/PacketDisplay.tsx"
+    },
+    {
+      "path": "triggering",
+      "anchor": "large-payloads",
+      "file": "apps/webapp/app/components/runs/v3/ReplayRunDialog.tsx"
+    },
+    {
+      "path": "triggering",
+      "anchor": "options",
+      "file": "apps/webapp/app/components/runs/v3/ReplayRunDialog.tsx"
+    },
+    {
+      "path": "v3/triggering",
+      "anchor": "",
+      "file": "apps/webapp/app/components/runs/v3/TaskRunsTable.tsx"
+    },
+    {
+      "path": "v3/triggering",
+      "anchor": "",
+      "file": "apps/webapp/app/components/runs/v3/TaskRunsTable.tsx"
+    },
+    {
+      "path": "v3/tags",
+      "anchor": "",
+      "file": "apps/webapp/app/components/runs/v3/TaskRunsTable.tsx"
+    },
+    {
+      "path": "",
+      "anchor": "",
+      "file": "apps/webapp/app/components/runs/v3/TaskRunStatus.tsx"
+    },
+    {
+      "path": "v3/tasks-scheduled",
+      "anchor": "",
+      "file": "apps/webapp/app/components/schedules/ScheduleInspector.tsx"
+    },
+    {
+      "path": "management/overview",
+      "anchor": "personal-access-token-pat",
+      "file": "apps/webapp/app/routes/account.tokens/route.tsx"
+    },
+    {
+      "path": "deployment/overview",
+      "anchor": "local-builds",
+      "file": "apps/webapp/app/routes/api.v1.remote-build-provider-status.ts"
+    },
+    {
+      "path": "idempotency",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/resources.orgs.$organizationSlug.projects.$projectParam.env.$envParam.runs.$runParam.spans.$spanParam/route.tsx"
+    },
+    {
+      "path": "runs/metadata",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/resources.orgs.$organizationSlug.projects.$projectParam.env.$envParam.runs.$runParam.spans.$spanParam/route.tsx"
+    },
+    {
+      "path": "wait",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/resources.orgs.$organizationSlug.projects.$projectParam.env.$envParam.runs.$runParam.spans.$spanParam/route.tsx"
+    },
+    {
+      "path": "v3/tasks-scheduled",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/resources.orgs.$organizationSlug.projects.$projectParam.env.$envParam.schedules.new/route.tsx"
+    },
+    {
+      "path": "errors-retrying",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/storybook.agent-ui/route.tsx"
+    },
+    {
+      "path": "ai-chat/overview",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.agents.$agentParam/route.tsx"
+    },
+    {
+      "path": "v3/troubleshooting-alerts",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.alerts/route.tsx"
+    },
+    {
+      "path": "v3/apikeys",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.apikeys/route.tsx"
+    },
+    {
+      "path": "triggering",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.batches/route.tsx"
+    },
+    {
+      "path": "deployment/preview-branches",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.branches/route.tsx"
+    },
+    {
+      "path": "bulk-actions",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.bulk-actions/route.tsx"
+    },
+    {
+      "path": "cli-deploy",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.deployments/route.tsx"
+    },
+    {
+      "path": "deployment/dev-branches",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.dev-branches/route.tsx"
+    },
+    {
+      "path": "v3/deploy-environment-variables",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.environment-variables/route.tsx"
+    },
+    {
+      "path": "limits",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.limits/route.tsx"
+    },
+    {
+      "path": "ai-chat/overview",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.playground/route.tsx"
+    },
+    {
+      "path": "ai/prompts",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.prompts._index/route.tsx"
+    },
+    {
+      "path": "queue-concurrency",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.queues/route.tsx"
+    },
+    {
+      "path": "upgrade-to-v4",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.queues/route.tsx"
+    },
+    {
+      "path": "triggering",
+      "anchor": "region",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.regions/route.tsx"
+    },
+    {
+      "path": "triggering",
+      "anchor": "region",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.regions/route.tsx"
+    },
+    {
+      "path": "runs",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.runs.$runParam/route.tsx"
+    },
+    {
+      "path": "runs-and-attempts",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.runs._index/route.tsx"
+    },
+    {
+      "path": "triggering",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.runs._index/route.tsx"
+    },
+    {
+      "path": "ai-chat/sessions",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.sessions.$sessionParam/route.tsx"
+    },
+    {
+      "path": "ai-chat/sessions",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.sessions._index/route.tsx"
+    },
+    {
+      "path": "v3/agents",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.tasks.dashboard/route.tsx"
+    },
+    {
+      "path": "v3/tasks-overview",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.tasks.dashboard/route.tsx"
+    },
+    {
+      "path": "v3/tasks-scheduled",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.tasks.dashboard/route.tsx"
+    },
+    {
+      "path": "v3/tasks-scheduled",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.tasks.scheduled.$taskParam/route.tsx"
+    },
+    {
+      "path": "run-tests",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.test/route.tsx"
+    },
+    {
+      "path": "wait",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam.waitpoints.tokens/route.tsx"
+    },
+    {
+      "path": "tasks/overview",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.projects.$projectParam.env.$envParam._index/route.tsx"
+    },
+    {
+      "path": "private-networking/overview",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.settings.private-connections.new/route.tsx"
+    },
+    {
+      "path": "private-networking/aws-console-setup",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.settings.private-connections.new/route.tsx"
+    },
+    {
+      "path": "private-networking/overview",
+      "anchor": "",
+      "file": "apps/webapp/app/routes/_app.orgs.$organizationSlug.settings.private-connections._index/route.tsx"
+    },
+    {
+      "path": "frontend/overview",
+      "anchor": "authentication",
+      "file": "apps/webapp/app/services/realtime/jwtAuth.server.ts"
+    },
+    {
+      "path": "frontend/overview",
+      "anchor": "authentication",
+      "file": "apps/webapp/app/services/realtime/jwtAuth.server.ts"
+    },
+    {
+      "path": "",
+      "anchor": "",
+      "file": "apps/webapp/app/utils/pathBuilder.ts"
+    },
+    {
+      "path": "migrating-from-v3",
+      "anchor": "",
+      "file": "apps/webapp/app/v3/engineDeprecation.server.ts"
+    },
+    {
+      "path": "management/tasks/batch-trigger",
+      "anchor": "",
+      "file": "apps/webapp/app/v3/mollifier/mollifierMollify.server.ts"
+    },
+    {
+      "path": "migrating-from-v3",
+      "anchor": "",
+      "file": "apps/webapp/app/v3/services/initializeDeployment.server.ts"
+    },
+    {
+      "path": "v3/troubleshooting",
+      "anchor": "",
+      "file": "apps/webapp/app/utils/pathBuilder.ts:docsTroubleshootingPath"
+    }
+  ],
+  "dynamic": []
+}
